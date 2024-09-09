@@ -1,10 +1,5 @@
 import { css } from "styled-components";
-import {
-  borders,
-  colors,
-  screen,
-  shadows
-} from "./styleConstants";
+import { borders, colors, screen, shadows } from "./styleConstants";
 
 //HELPER to use mixin with props in styled-components write: ${props => mixin(props.yourProps)}
 
@@ -42,6 +37,13 @@ export const absCenter = css`
   translate: -50% -50%;
 `;
 
+export const absTopRight = css`
+  position: absolute;
+  top: 15%;
+  right: 15%;
+`;
+
+/////////////////////////////////////////////
 export const absVertically = css`
   position: absolute;
   top: 50%;
@@ -64,41 +66,23 @@ export const flexCenter = css`
 
 export const square = (size: number) => css`
   width: ${size}px;
-  aspect-ratio: 1;
-`;
-
-export const hover = css`
-  @media (hover: hover) {
-    &:hover {
-      @content;
-    }
-
-    &:active {
-      @content;
-    }
-  }
-
-  @media (hover: none) {
-    &:active {
-      @content;
-    }
-  }
+  height: ${size}px;
 `;
 
 export const hoverActive = css`
   @media (hover: hover) {
     &:hover {
-      background-color: ${colors.grayButton};
+      background-color: ${colors.grayHover};
     }
 
     &:active {
-      background-color: ${colors.grayBorder};
+      background-color: ${colors.grayActive};
     }
   }
 
   @media (hover: none) {
     &:active {
-      background-color: ${colors.grayBorder};
+      background-color: ${colors.grayActive};
     }
   }
 `;
@@ -136,6 +120,7 @@ export const opacityHoverActive = css`
   }
 `;
 
+///////////////////////////////////////////////////
 export const inputHoverActive = css`
   &:hover,
   &:active {
@@ -145,44 +130,8 @@ export const inputHoverActive = css`
 
 export const styledWrapper = css`
   background-color: ${colors.whiteTotal};
-  border: ${borders.defaultBorder};
   border-radius: ${borders.defaultBorderRadius};
   box-shadow: ${shadows.defaultShadow};
-`;
-
-export const loadingGradient = css`
-  background: ${colors.loadingGradient};
-  position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    background: ${colors.loadingGradient};
-    transform: rotate(180deg);
-    border-radius: inherit;
-    animation-duration: 3s;
-    animation-fill-mode: forwards;
-    animation-iteration-count: infinite;
-    animation-name: loading;
-    animation-timing-function: ease;
-  }
-
-  @keyframes loading {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
 `;
 
 export const scrollBar = css`
