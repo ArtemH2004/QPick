@@ -5,7 +5,7 @@ import {
   Navigate,
   RouterProvider,
 } from "react-router-dom";
-import { HomePage } from "../pages/home/HomePage";
+import { HomePage } from "@/pages/home/HomePage";
 
 export default function RoutesProvider() {
   const routesProvider = createBrowserRouter(

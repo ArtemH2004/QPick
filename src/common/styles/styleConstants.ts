@@ -106,7 +106,7 @@ export const fonts = {
     titleMobile: 22,
     subTitle: 20,
     subTitleMobile: 17,
-    main: 18,
+    main: 17,
     mainMobile: 15,
     small: 15,
     smallMobile: 12,

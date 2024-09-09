@@ -6,11 +6,12 @@ import {
   hoverActive,
   resetButton,
   square,
-} from "../../mixins";
+} from "@/common/styles/mixins";
 import { Link } from "react-router-dom";
-import Basket from "../../../../../public/images/basket.svg";
-import Liked from "../../../../../public/images/liked.svg";
-import { borders, colors, fonts } from "../../styleConstants";
+import { borders, colors, fonts } from "@/common/styles/styleConstants";
+
+const basket = 'public/images/basket.svg';
+const favorites = 'public/images/liked.svg';
 
 const Button = styled("button")`
   ${resetButton};
@@ -58,7 +59,7 @@ export const ButtonWithCount = ({
   return (
     <Link to={link || '/'}>
       <Button title={title}>
-        <ButtonImg src={title === "Корзина" ? Basket : Liked} alt={title} />
+        <ButtonImg src={title === "Корзина" ? basket : favorites} alt={title} />
         <ButtonCountWrapper>
           <Count>{count}</Count>
         </ButtonCountWrapper>
