@@ -52,6 +52,8 @@ export const colors = {
   //Gray
   grayBackground: "rgba(234, 234, 234, 1)",
   grayAccent: "rgba(210, 210, 210, 1)",
+  grayHover: "rgba(200, 200, 200, 1)",
+  grayActive: "rgba(180, 180, 180, 1)",
   grayText: "rgba(131, 131, 131, 1)",
   grayScrollBar: "rgba(155, 155, 155, 1)",
   grayScrollBarHover: "rgba(140, 140, 140, 1)",
@@ -65,7 +67,7 @@ export const colors = {
   blackTotal: "rgba(0, 0, 0, 1)",
   blackAccent: "rgba(16, 16, 16, 1)",
   blackShadow: "rgba(0, 0, 0, .1)",
-  
+
   blackActive: `${getColorName("buttonActive")}`,
   blackBackground: `${getColorName("buttonBackground")}`,
   blackThumb: `${getColorName("thumbColor")}`,
