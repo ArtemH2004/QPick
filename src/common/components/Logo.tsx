@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import QPickLogo from "../../../public/images/logo.svg";
 import { Link } from "react-router-dom";
-import { VisuallyHidden } from "../styles/GlobalStyles";
+import { VisuallyHidden } from "@/common/styles/GlobalStyles";
+
+const logo = 'public/images/logo.svg';
 
 const LogoLink = styled(Link)``;
 
@@ -11,7 +12,7 @@ export const Logo = () => {
       <VisuallyHidden>
         <h1>QPick Logo</h1>
       </VisuallyHidden>
-      <img src={QPickLogo} alt="QPick Logo" width={85} height={30} />
+      <img src={logo} alt="QPick Logo" width={85} height={30} />
     </LogoLink>
   );
 };

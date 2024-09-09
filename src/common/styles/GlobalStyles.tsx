@@ -4,8 +4,8 @@ import {
   device,
   screen,
   transitions,
-} from "./styleConstants";
-import { resetLink, scrollBar } from "./mixins";
+} from "@/common/styles/styleConstants";
+import { resetLink, scrollBar } from "@/common/styles/mixins";
 
 export const Container = styled("div")`
   max-width: calc(${screen.fullScreenWidth} + 25px * 2);

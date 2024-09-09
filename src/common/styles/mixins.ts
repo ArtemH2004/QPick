@@ -1,5 +1,11 @@
 import { css } from "styled-components";
-import { borders, colors, screen, shadows } from "./styleConstants";
+import {
+  borders,
+  colors,
+  screen,
+  shadows,
+  transitions,
+} from "@/common/styles/styleConstants";
 
 //HELPER to use mixin with props in styled-components write: ${props => mixin(props.yourProps)}
 
@@ -87,17 +93,65 @@ export const hoverActive = css`
   }
 `;
 
-export const buttonHoverActive = css`
+export const scaleHoverActive = css`
   @media (hover: hover) {
-    &:hover,
-    &:active {
+    &:hover {
       transform: scale(0.95);
+    }
+
+    &:active {
+      transform: scale(0.9);
     }
   }
 
   @media (hover: none) {
     &:active {
-      transform: scale(0.95);
+      transform: scale(0.9);
+    }
+  }
+`;
+
+export const linkHoverActive = css`
+  padding-block: 2px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50%;
+    width: 0;
+    height: 1px;
+    background-color: ${colors.blackTotal};
+    transition: ${transitions.fastTransition};
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:active {
+      color: ${colors.blackShadow};
+
+      &::after {
+        width: 0;
+        background-color: ${colors.blackShadow};
+      }
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      color: ${colors.blackShadow};
+
+      &::after {
+        width: 0;
+        background-color: ${colors.blackShadow};
+      }
     }
   }
 `;

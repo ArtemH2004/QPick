@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Container } from "../common/styles/GlobalStyles";
-import { Header } from "../common/components/header/Header";
+import { Container } from "@/common/styles/GlobalStyles";
+import { Header } from "@/common/components/header/Header";
+import { Footer } from "@/common/components/footer/Footer";
 
 const Wrapper = styled("div")`
   width: 100%;
@@ -20,6 +21,7 @@ export const PageWrapper = ({ content }: PageWrapperProps) => {
       <Wrapper>
         <Header />
         {content}
+        <Footer />
       </Wrapper>
     </Container>
   );

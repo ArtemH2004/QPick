@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { flexCenter, square } from "../../styles/mixins";
+import { flexCenter, square } from "@/common/styles/mixins";
 
 export const HeaderWrapper = styled("header")`
   width: 100%;
