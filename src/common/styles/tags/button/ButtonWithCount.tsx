@@ -10,8 +10,8 @@ import {
 import { Link } from "react-router-dom";
 import { borders, colors, fonts } from "@/common/styles/styleConstants";
 
-const basket = 'public/images/basket.svg';
-const favorites = 'public/images/liked.svg';
+const basket = 'public/images/icons/basket.svg';
+const favorites = 'public/images/icons/liked.svg';
 
 const Button = styled("button")`
   ${resetButton};
@@ -48,18 +48,20 @@ const Count = styled("span")`
 interface ButtonWithCountProps {
   count: number;
   title: string;
+  icon: string;
   link?: string;
 }
 
 export const ButtonWithCount = ({
   count,
   title,
+  icon,
   link,
 }: ButtonWithCountProps) => {
   return (
     <Link to={link || '/'}>
       <Button title={title}>
-        <ButtonImg src={title === "Корзина" ? basket : favorites} alt={title} />
+        <ButtonImg src={icon === 'basket' ? basket : favorites} alt={title} />
         <ButtonCountWrapper>
           <Count>{count}</Count>
         </ButtonCountWrapper>

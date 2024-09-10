@@ -1,7 +1,6 @@
-import { getColorName } from "./theme";
-
 export const screen = {
   fullScreenWidth: 1440,
+  containerScreenWidth: 1110,
 
   desktopScreenWidth: "1440px",
   desktopScreenWidthAbove: "1441px",
@@ -46,8 +45,6 @@ export const device = {
 export const colors = {
   //White
   whiteTotal: "rgba(255, 255, 255, 1)",
-  whiteBackground: `${getColorName("mainBackground")}`,
-  whiteModal: `${getColorName("modalBackground")}`,
 
   //Gray
   grayBackground: "rgba(234, 234, 234, 1)",
@@ -59,24 +56,17 @@ export const colors = {
   grayScrollBarHover: "rgba(140, 140, 140, 1)",
   grayScrollBarActive: "rgba(130, 130, 130, 1)",
 
-  grayButton: `${getColorName("buttonHover")}`,
-  grayBorder: `${getColorName("border")}`,
-
-
   //Black
   blackTotal: "rgba(0, 0, 0, 1)",
   blackAccent: "rgba(16, 16, 16, 1)",
   blackShadow: "rgba(0, 0, 0, .1)",
 
-  blackActive: `${getColorName("buttonActive")}`,
-  blackBackground: `${getColorName("buttonBackground")}`,
-  blackThumb: `${getColorName("thumbColor")}`,
-  shadow: `${getColorName("shadow")}`,
-  loadingGradient: `${getColorName("loadingGradient")}`,
-
   //Orange
   orange: "rgba(255, 165, 66, 1)",
   orangeAccent: "rgba(255, 206, 127, 1)",
+
+  //Blue
+  blue: 'rgba(28, 28, 39, 1)',
 };
 
 export const shadows = {
@@ -84,9 +74,8 @@ export const shadows = {
 };
 
 export const borders = {
-  defaultBorder: `1px solid ${colors.grayBorder}`,
-
   smallBorderRadius: "5px",
+  mediumBorderRadius: "20px",
   defaultBorderRadius: "30px",
   circleBorderRadius: "50%",
 
@@ -104,12 +93,14 @@ export const fonts = {
   sizes: {
     title: 30,
     titleMobile: 22,
-    subTitle: 20,
-    subTitleMobile: 17,
+    subtitle: 20,
+    subtitleMobile: 18,
     main: 17,
     mainMobile: 15,
     small: 15,
     smallMobile: 12,
+    extraSmall: 13, 
+    extraSmallMobile: 11,
   },
 
   // weight

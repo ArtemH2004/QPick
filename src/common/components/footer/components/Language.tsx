@@ -1,8 +1,9 @@
+import { getLanguage } from "@/common/helpers/getLanguage";
 import { flexCenter, square } from "@/common/styles/mixins";
 import { LanguageButton } from "@/common/styles/tags/button/LanguageButton";
 import styled from "styled-components";
 
-const language = "public/images/language.svg";
+const language = "public/images/icons/language.svg";
 
 const Wrapper = styled("div")`
   ${flexCenter}
@@ -14,9 +15,11 @@ const Icon = styled("img")`
 `;
 
 export const Language = () => {
+  const lang = getLanguage();
+
   return (
     <Wrapper>
-      <Icon src={language} />
+      <Icon src={language} alt={lang.language} />
       <LanguageButton title="Рус" />
       <LanguageButton title="Eng" />
     </Wrapper>
