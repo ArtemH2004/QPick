@@ -10,10 +10,10 @@ export const Header = () => {
       <Logo />
       <HeaderList>
         <HeaderItem>
-          <ButtonWithCount count={0} title={lang.favorites} />
+          <ButtonWithCount count={0} title={lang.favorites} icon="favorites" />
         </HeaderItem>
         <HeaderItem>
-          <ButtonWithCount count={2} title={lang.basket} link="basket" />
+          <ButtonWithCount count={2} title={lang.basket} icon="basket" link="basket" />
         </HeaderItem>
       </HeaderList>
     </HeaderWrapper>

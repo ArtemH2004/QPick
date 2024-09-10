@@ -22,7 +22,7 @@ export const clampWidth = (min: number, max: number) => css`
 `;
 
 export const clampHeight = (min: number, max: number) => css`
-  height: clamp(${min}px, ${(max / 1024) * 100}vw, ${max}px);
+  height: clamp(${min}px, ${(max / screen.fullScreenWidth) * 100}vw, ${max}px);
 `;
 
 export const resetLink = css`
@@ -47,21 +47,6 @@ export const absTopRight = css`
   position: absolute;
   top: 15%;
   right: 15%;
-`;
-
-/////////////////////////////////////////////
-export const absVertically = css`
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-`;
-
-export const absHorizontally = css`
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
 `;
 
 export const flexCenter = css`
@@ -89,6 +74,28 @@ export const hoverActive = css`
   @media (hover: none) {
     &:active {
       background-color: ${colors.grayActive};
+    }
+  }
+`;
+
+export const buttonHoverActive = css`
+  @media (hover: hover) {
+    &:hover,
+    &:active {
+      color: ${colors.whiteTotal};
+      background-color: ${colors.blackTotal};
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      color: ${colors.whiteTotal};
+      background-color: ${colors.grayScrollBarActive};
+      transform: scale(0.9);
     }
   }
 `;
@@ -159,11 +166,11 @@ export const linkHoverActive = css`
 export const opacityHoverActive = css`
   @media (hover: hover) {
     &:hover {
-      opacity: 0.7;
+      opacity: 0.8;
     }
 
     &:active {
-      opacity: 0.5;
+      opacity: 0.7;
     }
   }
 
@@ -171,14 +178,6 @@ export const opacityHoverActive = css`
     &:active {
       opacity: 0.5;
     }
-  }
-`;
-
-///////////////////////////////////////////////////
-export const inputHoverActive = css`
-  &:hover,
-  &:active {
-    background-color: ${colors.whiteBackground};
   }
 `;
 

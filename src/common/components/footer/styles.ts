@@ -50,6 +50,7 @@ export const FooterContent = styled("div")`
 export const FooterList = styled("ul")`
   height: 100%;
   display: flex;
+  align-items: start;
   flex-direction: column;
   justify-content: space-between;
   row-gap: 5px;

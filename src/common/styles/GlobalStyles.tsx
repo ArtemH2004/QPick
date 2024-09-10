@@ -8,17 +8,17 @@ import {
 import { resetLink, scrollBar } from "@/common/styles/mixins";
 
 export const Container = styled("div")`
-  max-width: calc(${screen.fullScreenWidth} + 25px * 2);
+  max-width: calc(${screen.containerScreenWidth}px + 25px * 2);
   padding-inline: 25px;
   margin: 0 auto;
 
   @media ${device.mobileL} {
-    max-width: calc(${screen.fullScreenWidth} + 10px * 2);
+    max-width: calc(${screen.containerScreenWidth}px + 10px * 2);
     padding-inline: 10px;
   }
 
   @media ${device.mobileM} {
-    max-width: calc(${screen.fullScreenWidth} + 5px * 2);
+    max-width: calc(${screen.containerScreenWidth}px + 5px * 2);
     padding-inline: 5px;
   }
 `;
