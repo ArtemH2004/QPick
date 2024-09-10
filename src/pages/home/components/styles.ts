@@ -1,8 +1,4 @@
-import {
-  clampText,
-  flexCenter,
-  styledWrapper,
-} from "@/common/styles/mixins";
+import { clampText, flexCenter, styledWrapper } from "@/common/styles/mixins";
 import {
   colors,
   device,
@@ -94,7 +90,6 @@ export const HomeProductCardContentWrapper = styled("div")`
   flex-direction: column;
   row-gap: 15px;
 
-  
   @media ${device.mobile} {
     row-gap: 5px;
   }
@@ -108,6 +103,7 @@ export const HomeProductCardHeader = styled("header")`
 `;
 
 export const HomeProductCardTitle = styled("h3")`
+  white-space: nowrap;
   ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
   font-weight: ${fonts.weights.semiBold};
   color: ${colors.blue};

@@ -8,4 +8,9 @@ export const englishLanguage = {
     service: 'Terms of service',
     headphones: 'Headphones',
     wirelessHeadphones: "Wireless headphones",
+    total: 'Total',
+    order: 'Proceed to checkout',
+    delete: 'Delete',
+    plus: 'Add',
+    minus: 'Remove',
 }

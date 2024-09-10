@@ -58,8 +58,12 @@ export const ButtonWithCount = ({
   icon,
   link,
 }: ButtonWithCountProps) => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0 });
+  };
+
   return (
-    <Link to={link || '/'}>
+    <Link to={link || '/'} onClick={scrollToTop}>
       <Button title={title}>
         <ButtonImg src={icon === 'basket' ? basket : favorites} alt={title} />
         <ButtonCountWrapper>
