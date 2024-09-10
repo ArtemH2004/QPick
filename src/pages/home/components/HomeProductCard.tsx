@@ -1,5 +1,5 @@
 import { getLanguage } from "@/common/helpers/getLanguage";
-import { ProductCard } from "@/common/interfaces/productCard";
+import { ProductCard } from "@/common/interfaces/ProductCard";
 import { BuyButton } from "@/common/styles/tags/button/BuyButton";
 import {
   HomeProductCardArticle,

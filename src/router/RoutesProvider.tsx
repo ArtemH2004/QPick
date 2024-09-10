@@ -6,13 +6,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { HomePage } from "@/pages/home/HomePage";
+import { BasketPage } from "@/pages/basket/BasketPage";
 
 export default function RoutesProvider() {
   const routesProvider = createBrowserRouter(
     createRoutesFromElements(
       <>
         <Route path="/" element={<HomePage />} />
-        <Route path="basket" element={<>Basket</>} />
+        <Route path="basket" element={<BasketPage />} />
         <Route path="error" element={<>Error</>} />
         <Route path="*" element={<Navigate to="/error" replace />} />
       </>

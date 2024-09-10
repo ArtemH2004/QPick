@@ -8,4 +8,9 @@ export const russianLanguage = {
     service: 'Условия сервиса',
     headphones: 'Наушники',
     wirelessHeadphones: "Беспроводные наушники",
+    total: 'Итого',
+    order: 'Перейти к оформлению',
+    delete: 'Удалить',
+    plus: 'Добавить',
+    minus: 'Убрать',
 }

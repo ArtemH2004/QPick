@@ -49,6 +49,13 @@ export const absTopRight = css`
   right: 15%;
 `;
 
+export const absBottom = css`
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50%;
+`;
+
 export const flexCenter = css`
   display: flex;
   justify-content: center;
