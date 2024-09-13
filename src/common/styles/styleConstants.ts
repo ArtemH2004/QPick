@@ -65,7 +65,7 @@ export const colors = {
 
   //Red
   red: "rgba(255, 0, 0, 1)",
-  
+
   //Orange
   orange: "rgba(255, 165, 66, 1)",
   orangeAccent: "rgba(255, 206, 127, 1)",
@@ -81,6 +81,8 @@ export const shadows = {
 };
 
 export const borders = {
+  defaultBorder: `1px solid ${colors.blackTotal}`,
+  
   smallBorderRadius: "5px",
   mediumBorderRadius: "20px",
   defaultBorderRadius: "30px",

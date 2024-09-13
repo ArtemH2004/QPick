@@ -17,4 +17,6 @@ export const russianLanguage = {
     favoritesEmpty: 'Избранное пусто',
     addToFavorites: 'Добавить в избранное',
     removeFromFavorites: 'Удалить из избранного',
+    errorMessage: 'Страница не найдена',
+    homeLink: 'Вернуться на главную',
 }

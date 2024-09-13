@@ -2,7 +2,6 @@ import { getLanguage } from "@/common/helpers/getLanguage";
 import { HomeProductCard } from "@/pages/home/components/HomeProductCard";
 import {
   HomeContentSection,
-  HomeContentTitle,
   HomeProductCardList,
 } from "@/pages/home/components/styles";
 import { useEffect } from "react";
@@ -10,6 +9,7 @@ import { scrollToTop } from "@/common/helpers/scrollToTop";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { Empty } from "@/common/components/Empty";
+import { BasketContentTitle } from "@/pages/basket/components/styles";
 
 export const FavoritesContent = () => {
   const lang = getLanguage();
@@ -20,19 +20,19 @@ export const FavoritesContent = () => {
   }, []);
 
   return (
-    <div style={{minHeight: '75vh'}}>
-      {favorites.length !== 0 ? (
-        <HomeContentSection>
-          <HomeContentTitle>{lang.favorites}</HomeContentTitle>
+    <div style={{ minHeight: "75vh" }}>
+      <HomeContentSection>
+        <BasketContentTitle>{lang.favorites}</BasketContentTitle>
+        {favorites.length !== 0 ? (
           <HomeProductCardList>
             {favorites.map((item, index) => (
               <HomeProductCard key={index} card={item} />
             ))}
           </HomeProductCardList>
-        </HomeContentSection>
-      ) : (
-        <Empty icon="favorites" title={lang.favoritesEmpty} />
-      )}
+        ) : (
+          <Empty icon="favorites" title={lang.favoritesEmpty} />
+        )}
+      </HomeContentSection>
     </div>
   );
 };

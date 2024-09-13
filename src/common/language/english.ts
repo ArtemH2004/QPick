@@ -17,4 +17,6 @@ export const englishLanguage = {
     favoritesEmpty: 'Favorites are empty',
     addToFavorites: 'Add to favorites',
     removeFromFavorites: 'Remove from favorites',
+    errorMessage: 'Page not found',
+    homeLink: 'Return to home',
 }
