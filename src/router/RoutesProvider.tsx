@@ -9,6 +9,7 @@ import { PageWrapper } from "@/pages/PageWrapper";
 import { HomeContent } from "@/pages/home/components/HomeContent";
 import { BasketContent } from "@/pages/basket/components/BasketContent";
 import { FavoritesContent } from "@/pages/favorites/FavoritesContent";
+import { ErrorPage } from "@/pages/error/ErrorPage";
 
 export default function RoutesProvider() {
   const routesProvider = createBrowserRouter(
@@ -20,7 +21,7 @@ export default function RoutesProvider() {
           <Route path="basket" element={<BasketContent />} />
           <Route path="favorites" element={<FavoritesContent />} />
         </Route>
-        <Route path="error" element={<>Error</>} />
+        <Route path="error" element={<ErrorPage />} />
         <Route path="*" element={<Navigate to="/error" replace />} />
       </>
     )

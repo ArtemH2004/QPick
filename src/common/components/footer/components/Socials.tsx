@@ -11,6 +11,6 @@ export const Socials = () => {
   return <SocialList>
     <SocialItem title="VK" link="https://vk.com/neoflex_ru" />
     <SocialItem title="Telegram" link="https://t.me/neoflexcareers" />
-    <SocialItem title="WhatsApp" />
+    <SocialItem title="WhatsApp" link="https://web.whatsapp.com/" />
   </SocialList>;
 };
