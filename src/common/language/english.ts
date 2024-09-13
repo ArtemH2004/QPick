@@ -14,4 +14,7 @@ export const englishLanguage = {
     plus: 'Add',
     minus: 'Remove',
     basketEmpty: 'Basket is empty',
+    favoritesEmpty: 'Favorites are empty',
+    addToFavorites: 'Add to favorites',
+    removeFromFavorites: 'Remove from favorites',
 }

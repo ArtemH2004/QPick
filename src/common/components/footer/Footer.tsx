@@ -6,7 +6,6 @@ import {
   FooterWrapper,
 } from "@/common/components/footer/styles";
 import { FooterLink } from "@/common/styles/tags/a/FooterLink";
-import { Link } from "react-router-dom";
 import { Language } from "@/common/components/footer/components/Language";
 import { getLanguage } from "@/common/helpers/getLanguage";
 
@@ -19,10 +18,8 @@ export const Footer = () => {
       {/* TODO add links */}
       <FooterContent>
         <FooterList>
-          <FooterLink title={lang.favorites} />
-          <Link to={"basket"}>
-            <FooterLink title={lang.basket} />
-          </Link>
+          <FooterLink title={lang.favorites} navLink="favorites" />
+          <FooterLink title={lang.basket} navLink="basket" />
           <FooterLink title={lang.contacts} link="tel:74959842513" />
         </FooterList>
 

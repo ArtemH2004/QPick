@@ -19,8 +19,7 @@ const Button = styled("button")<{ $color?: string; $isActive?: boolean }>`
   border-radius: ${borders.circleBorderRadius};
   background-color: ${(props) =>
     props.$color === "orange" ? colors.orangeAccent : "transparent"};
-  background-color: ${(props) =>
-    props.$isActive && colors.blackShadow};
+  background-color: ${(props) => props.$isActive && colors.blackShadow};
   pointer-events: ${(props) => props.$isActive && "none"};
 
   ${hoverActive}

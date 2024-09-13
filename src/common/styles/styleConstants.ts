@@ -63,7 +63,9 @@ export const colors = {
   blackShadowHover: "rgba(0, 0, 0, .3)",
   blackShadowActive: "rgba(0, 0, 0, .5)",
 
-
+  //Red
+  red: "rgba(255, 0, 0, 1)",
+  
   //Orange
   orange: "rgba(255, 165, 66, 1)",
   orangeAccent: "rgba(255, 206, 127, 1)",

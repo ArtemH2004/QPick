@@ -14,4 +14,7 @@ export const russianLanguage = {
     plus: 'Добавить',
     minus: 'Убрать',
     basketEmpty: 'Корзина пуста',
+    favoritesEmpty: 'Избранное пусто',
+    addToFavorites: 'Добавить в избранное',
+    removeFromFavorites: 'Удалить из избранного',
 }

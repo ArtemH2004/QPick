@@ -4,6 +4,7 @@ import { BuyButton } from "@/common/styles/tags/button/BuyButton";
 import {
   HomeProductCardArticle,
   HomeProductCardContentWrapper,
+  HomeProductCardFavoritesWrapper,
   HomeProductCardFooter,
   HomeProductCardHeader,
   HomeProductCardImage,
@@ -22,6 +23,7 @@ import { RootState } from "@/store/store";
 import { CardCounter } from "@/common/components/CardCounter";
 import { VisuallyHidden } from "@/common/styles/GlobalStyles";
 import { memo } from "react";
+import { FavoritesButton } from "@/common/styles/tags/button/FavoritesButton";
 
 const star = "public/images/icons/star.svg";
 
@@ -32,18 +34,39 @@ interface HomeProductCardProps {
 export const HomeProductCard = memo(({ card }: HomeProductCardProps) => {
   const lang = getLanguage();
   const basket = useSelector((state: RootState) => state.basket);
-  const { setCardInBasket } = useActions();
+  const favorites = useSelector((state: RootState) => state.favorites);
+  const { setCardInBasket, setCardInFavorites, replaceCardFromFavorites } =
+    useActions();
 
-  const cardIndexInBasket = basket.card.findIndex(item => item.id === card.id);
-  const isCardInBasket = basket.card.some(item => item.id === card.id);
+  const cardIndexInBasket = basket.card.findIndex(
+    (item) => item.id === card.id
+  );
+  const isCardInBasket = basket.card.some((item) => item.id === card.id);
+  const isCardInFavorites =
+    favorites.card.some((item) => item.id == card.id) || false;
 
   const handleAddClick = () => {
     setCardInBasket(card);
   };
 
+  const handleFavoritesClick = () => {
+    !isCardInFavorites
+      ? setCardInFavorites(card)
+      : replaceCardFromFavorites(card);
+  };
+
   return (
     <HomeProductCardItem>
       <HomeProductCardArticle>
+        <HomeProductCardFavoritesWrapper>
+          <FavoritesButton
+            title={
+              isCardInFavorites ? lang.removeFromFavorites : lang.addToFavorites
+            }
+            isActive={isCardInFavorites}
+            click={handleFavoritesClick}
+          />
+        </HomeProductCardFavoritesWrapper>
         <HomeProductCardImage src={card.img} alt={card.title} />
 
         <HomeProductCardContentWrapper>

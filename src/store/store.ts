@@ -1,11 +1,13 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { rememberEnhancer, rememberReducer } from "redux-remember";
 import { basketReducer } from "@/store/reducers/basket/basketSlice";
+import { favoritesReducer } from "@/store/reducers/favorites/favoritesSlice";
 
-const rememberedReducers = ["basket"];
+const rememberedReducers = ["basket", "favorites",];
 
 const rootReducer = combineReducers({
   basket: basketReducer,
+  favorites: favoritesReducer
 });
 
 const rememberedReducer = rememberReducer(rootReducer);
