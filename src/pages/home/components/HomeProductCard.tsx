@@ -1,5 +1,5 @@
 import { getLanguage } from "@/common/helpers/getLanguage";
-import { ProductCard } from "@/common/interfaces/ProductCard";
+import { ProductCard } from "@/store/reducers/card/types";
 import { BuyButton } from "@/common/styles/tags/button/BuyButton";
 import {
   HomeProductCardArticle,
@@ -16,6 +16,12 @@ import {
   HomeProductCardStarWrapper,
   HomeProductCardTitle,
 } from "@/pages/home/components/styles";
+import { useActions } from "@/store/actions";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { CardCounter } from "@/common/components/CardCounter";
+import { VisuallyHidden } from "@/common/styles/GlobalStyles";
+import { memo } from "react";
 
 const star = "public/images/icons/star.svg";
 
@@ -23,8 +29,17 @@ interface HomeProductCardProps {
   card: ProductCard;
 }
 
-export const HomeProductCard = ({ card }: HomeProductCardProps) => {
+export const HomeProductCard = memo(({ card }: HomeProductCardProps) => {
   const lang = getLanguage();
+  const basket = useSelector((state: RootState) => state.basket);
+  const { setCardInBasket } = useActions();
+
+  const cardIndexInBasket = basket.card.findIndex(item => item.id === card.id);
+  const isCardInBasket = basket.card.some(item => item.id === card.id);
+
+  const handleAddClick = () => {
+    setCardInBasket(card);
+  };
 
   return (
     <HomeProductCardItem>
@@ -45,13 +60,20 @@ export const HomeProductCard = ({ card }: HomeProductCardProps) => {
 
           <HomeProductCardFooter>
             <HomeProductCardStarWrapper title={lang.raiting}>
+              <VisuallyHidden>{lang.raiting}</VisuallyHidden>
               <HomeProductCardStarIcon src={star} alt={lang.raiting} />
-              <HomeProductCardStarCount>{card.raiting}</HomeProductCardStarCount>
+              <HomeProductCardStarCount>
+                {card.raiting}
+              </HomeProductCardStarCount>
             </HomeProductCardStarWrapper>
-            <BuyButton id={card.id} />
+            {!isCardInBasket ? (
+              <BuyButton click={handleAddClick} />
+            ) : (
+              <CardCounter index={cardIndexInBasket} card={card} />
+            )}
           </HomeProductCardFooter>
         </HomeProductCardContentWrapper>
       </HomeProductCardArticle>
     </HomeProductCardItem>
   );
-};
+});

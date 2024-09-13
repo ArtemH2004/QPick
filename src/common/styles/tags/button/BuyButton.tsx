@@ -15,11 +15,11 @@ const Button = styled("button")`
 `;
 
 interface BuyButtonProps {
-  id: number;
+  click: () => void;
 }
 
-export const BuyButton = ({ id }: BuyButtonProps) => {
+export const BuyButton = ({ click }: BuyButtonProps) => {
   const lang = getLanguage();
 
-  return <Button>{lang.buyButton}</Button>;
+  return <Button onClick={click}>{lang.buyButton}</Button>;
 };

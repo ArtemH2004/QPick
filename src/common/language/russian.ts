@@ -13,4 +13,5 @@ export const russianLanguage = {
     delete: 'Удалить',
     plus: 'Добавить',
     minus: 'Убрать',
+    basketEmpty: 'Корзина пуста',
 }

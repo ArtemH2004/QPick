@@ -1,4 +1,4 @@
-import { clampText, flexCenter, styledWrapper } from "@/common/styles/mixins";
+import { cardHoverActive, clampText, flexCenter, styledWrapper } from "@/common/styles/mixins";
 import {
   colors,
   device,
@@ -66,9 +66,7 @@ export const HomeProductCardArticle = styled("article")`
   row-gap: 30px;
   transition: ${transitions.fastTransition};
 
-  &:hover {
-    transform: translateY(-10px);
-  }
+  ${cardHoverActive}
 
   @media ${device.mobileL} {
     padding: 10px 15px 20px;
@@ -116,12 +114,14 @@ export const HomeProductCardPriceWrapper = styled("div")`
 `;
 
 export const HomeProductCardPrice = styled("span")`
+  white-space: nowrap;
   ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
   font-weight: ${fonts.weights.semiBold};
   color: ${colors.orange};
 `;
 
 export const HomeProductCardOldPrice = styled("span")`
+  white-space: nowrap;
   ${clampText(fonts.sizes.extraSmallMobile, fonts.sizes.extraSmall)}
   font-weight: ${fonts.weights.semiBold};
   color: ${colors.orangeAccent};
