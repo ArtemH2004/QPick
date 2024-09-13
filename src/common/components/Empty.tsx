@@ -30,6 +30,7 @@ const Icon = styled("img")`
   ${square(50)}
   object-fit: contain;
   object-position: center;
+  user-select: none;
 `;
 
 const Text = styled("p")`

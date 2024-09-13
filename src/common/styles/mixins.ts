@@ -190,18 +190,15 @@ export const opacityHoverActive = css`
 
 export const cardHoverActive = css`
   @media (hover: hover) {
-    &:hover {
-      box-shadow: ${shadows.hoverShadow}
-    }
-
+    &:hover,
     &:active {
-      box-shadow: ${shadows.activeShadow}
+      box-shadow: ${shadows.hoverShadow}
     }
   }
 
   @media (hover: none) {
     &:active {
-      box-shadow: ${shadows.activeShadow}
+      box-shadow: ${shadows.hoverShadow}
     }
   }
 `;

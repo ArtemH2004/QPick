@@ -1,4 +1,9 @@
-import { cardHoverActive, clampText, flexCenter, styledWrapper } from "@/common/styles/mixins";
+import {
+  cardHoverActive,
+  clampText,
+  flexCenter,
+  styledWrapper,
+} from "@/common/styles/mixins";
 import {
   colors,
   device,
@@ -65,6 +70,7 @@ export const HomeProductCardArticle = styled("article")`
   justify-content: space-between;
   row-gap: 30px;
   transition: ${transitions.fastTransition};
+  position: relative;
 
   ${cardHoverActive}
 
@@ -72,6 +78,14 @@ export const HomeProductCardArticle = styled("article")`
     padding: 10px 15px 20px;
     row-gap: 20px;
   }
+`;
+
+export const HomeProductCardFavoritesWrapper = styled("div")`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+  ${flexCenter}
 `;
 
 export const HomeProductCardImage = styled("img")`

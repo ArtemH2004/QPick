@@ -1,8 +1,14 @@
 import styled from "styled-components";
 import { fonts } from "@/common/styles/styleConstants";
 import { clampText, linkHoverActive } from "@/common/styles/mixins";
+import { Link } from "react-router-dom";
 
 const LinkTo = styled("a")`
+  ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
+  ${linkHoverActive}
+`;
+
+const NavLink = styled(Link)`
   ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
   ${linkHoverActive}
 `;
@@ -10,12 +16,17 @@ const LinkTo = styled("a")`
 interface FooterLinkProps {
   title: string;
   link?: string;
+  navLink?: string;
 }
 
-export const FooterLink = ({ title, link }: FooterLinkProps) => {
+export const FooterLink = ({ title, link, navLink }: FooterLinkProps) => {
   return (
     <li>
-      <LinkTo href={link}>{title}</LinkTo>
+      {!!navLink ? (
+        <NavLink to={navLink}>{title}</NavLink>
+      ) : (
+        <LinkTo href={link}>{title}</LinkTo>
+      )}
     </li>
   );
 };
