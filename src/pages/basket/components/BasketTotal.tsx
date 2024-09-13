@@ -1,3 +1,4 @@
+import { normalizePrice } from "@/common/helpers/normalizePrice";
 import { OrderButton } from "@/common/styles/tags/button/OrderButton";
 import {
   BasketTotalHeader,
@@ -16,10 +17,10 @@ export const BasketTotal = ({ title, value }: BasketTotalProps) => {
     <BasketTotalSection>
       <BasketTotalHeader>
         <BasketTotalTitle>{title}</BasketTotalTitle>
-        <BasketTotalValue>{`₽ ${!!value ? value : 0}`}</BasketTotalValue>
+        <BasketTotalValue>{`₽ ${normalizePrice(!!value ? value : 0)}`}</BasketTotalValue>
       </BasketTotalHeader>
 
-      <OrderButton />
+      <OrderButton isActive={value === 0} />
     </BasketTotalSection>
   );
 };

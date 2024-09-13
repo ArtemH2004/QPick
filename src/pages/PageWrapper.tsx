@@ -1,8 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 import { Container } from "@/common/styles/GlobalStyles";
 import { Header } from "@/common/components/header/Header";
 import { Footer } from "@/common/components/footer/Footer";
+import { Outlet } from "react-router-dom";
 
 const Wrapper = styled("div")`
   width: 100%;
@@ -11,16 +11,12 @@ const Wrapper = styled("div")`
   row-gap: 28px;
 `;
 
-interface PageWrapperProps {
-  content: React.ReactNode;
-}
-
-export const PageWrapper = ({ content }: PageWrapperProps) => {
+export const PageWrapper = () => {
   return (
     <Container>
       <Wrapper>
         <Header />
-        {content}
+        <Outlet />
         <Footer />
       </Wrapper>
     </Container>

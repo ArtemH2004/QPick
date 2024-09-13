@@ -13,4 +13,5 @@ export const englishLanguage = {
     delete: 'Delete',
     plus: 'Add',
     minus: 'Remove',
+    basketEmpty: 'Basket is empty',
 }

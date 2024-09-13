@@ -188,6 +188,24 @@ export const opacityHoverActive = css`
   }
 `;
 
+export const cardHoverActive = css`
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: ${shadows.hoverShadow}
+    }
+
+    &:active {
+      box-shadow: ${shadows.activeShadow}
+    }
+  }
+
+  @media (hover: none) {
+    &:active {
+      box-shadow: ${shadows.activeShadow}
+    }
+  }
+`;
+
 export const styledWrapper = css`
   background-color: ${colors.whiteTotal};
   border-radius: ${borders.defaultBorderRadius};

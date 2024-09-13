@@ -9,6 +9,7 @@ import {
 } from "@/common/styles/mixins";
 import { Link } from "react-router-dom";
 import { borders, colors, fonts } from "@/common/styles/styleConstants";
+import { scrollToTop } from "@/common/helpers/scrollToTop";
 
 const basket = 'public/images/icons/basket.svg';
 const favorites = 'public/images/icons/liked.svg';
@@ -58,10 +59,6 @@ export const ButtonWithCount = ({
   icon,
   link,
 }: ButtonWithCountProps) => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0 });
-  };
-
   return (
     <Link to={link || '/'} onClick={scrollToTop}>
       <Button title={title}>

@@ -8,22 +8,40 @@ import {
 } from "@/pages/basket/components/styles";
 import { BasketTotal } from "@/pages/basket/components/BasketTotal";
 import { BasketProductCard } from "@/pages/basket/components/BasketProductCard";
-import { headphones } from "@/data/headphones";
+import { useEffect } from "react";
+import { scrollToTop } from "@/common/helpers/scrollToTop";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { totalPrice } from "@/common/helpers/totalPrice";
+import { Empty } from "@/common/components/Empty";
 
 export const BasketContent = () => {
   const lang = getLanguage();
+
+  const basket = useSelector((state: RootState) => state.basket.card);
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
+
   return (
     <BasketInnerWrapper>
       <BasketContentTitle>{lang.basket}</BasketContentTitle>
 
       <BasketContentWrapper>
         <BasketContentSection>
-          <BasketProductCardList>
-            <BasketProductCard card={headphones[0]} />
-          </BasketProductCardList>
+          {basket.length !== 0 ? (
+            <BasketProductCardList>
+              {basket.map((item, index) => (
+                <BasketProductCard key={index} index={index} card={item} />
+              ))}
+            </BasketProductCardList>
+          ) : (
+            <Empty icon="basket" title={lang.basketEmpty} />
+          )}
         </BasketContentSection>
 
-        <BasketTotal title={lang.total} value={2957} />
+        <BasketTotal title={lang.total} value={totalPrice()} />
       </BasketContentWrapper>
     </BasketInnerWrapper>
   );

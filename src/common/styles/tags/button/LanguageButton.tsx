@@ -15,10 +15,10 @@ interface LanguageButtonProps {
 }
 
 export const LanguageButton = ({ title }: LanguageButtonProps) => {
-  const language = localStorage.getItem("language") || 'Рус';
+  const language = sessionStorage.getItem("language") || 'Рус';
 
   const handleChangeLanguage = (language: string) => {
-    localStorage.setItem("language", language);
+    sessionStorage.setItem("language", language);
     document.location.reload();
   };
   return (

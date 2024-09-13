@@ -10,7 +10,7 @@ import {
 import { getLanguage } from "@/common/helpers/getLanguage";
 import { borders, colors, fonts } from "@/common/styles/styleConstants";
 
-const Button = styled("button")`
+const Button = styled("button")<{$isActive: boolean}>`
   ${resetButton}
   ${flexCenter}
   ${absBottom}
@@ -21,15 +21,20 @@ const Button = styled("button")`
   width: 100%;
   height: 65px;
   border-radius: ${borders.mediumBorderRadius};
-  background-color: ${colors.blackAccent};
+  background-color: ${(props) => props.$isActive ? colors.grayText : colors.blackAccent};
+  pointer-events: ${(props) => props.$isActive && 'none'};
   color: ${colors.whiteTotal};
 
   ${buttonHoverActive}
   ${opacityHoverActive}
 `;
 
-export const OrderButton = () => {
+interface OrderButtonProps {
+  isActive: boolean;
+}
+
+export const OrderButton = ({isActive}: OrderButtonProps) => {
   const lang = getLanguage();
 
-  return <Button>{lang.order}</Button>;
+  return <Button $isActive={isActive}>{lang.order}</Button>;
 };

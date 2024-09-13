@@ -1,11 +1,9 @@
 import { getLanguage } from "@/common/helpers/getLanguage";
-import { ProductCard } from "@/common/interfaces/ProductCard";
+import { ProductCard } from "@/store/reducers/card/types";
 import { ButtonWithIcon } from "@/common/styles/tags/button/ButtonWithIcon";
 import {
   BasketProductCardArticle,
   BasketProductCardContentWrapper,
-  BasketProductCardCount,
-  BasketProductCardCountWrapper,
   BasketProductCardEndWrapper,
   BasketProductCardImage,
   BasketProductCardInnerWrapper,
@@ -14,16 +12,23 @@ import {
   BasketProductCardPrice,
   BasketProductCardTitle,
 } from "@/pages/basket/components/styles";
-import { useState } from "react";
+import { useActions } from "@/store/actions";
+import { normalizePrice } from "@/common/helpers/normalizePrice";
+import { CardCounter } from "@/common/components/CardCounter";
+import { memo } from "react";
 
 interface BasketProductCardProps {
+  index: number;
   card: ProductCard;
 }
 
-export const BasketProductCard = ({ card }: BasketProductCardProps) => {
+export const BasketProductCard = memo(({ index, card }: BasketProductCardProps) => {
   const lang = getLanguage();
+  const { replaceCardFromBasket } = useActions();
 
-  const [count, setCount] = useState(0);
+  const handleReplaceClick = () => {
+    replaceCardFromBasket(card);
+  }
 
   return (
     <BasketProductCardItem>
@@ -31,24 +36,20 @@ export const BasketProductCard = ({ card }: BasketProductCardProps) => {
         <BasketProductCardContentWrapper>
           <BasketProductCardInnerWrapper>
             <BasketProductCardImage src={card.img} alt={card.title} />
-            <BasketProductCardCountWrapper>
-                <ButtonWithIcon icon="minus" title={lang.minus} color="orange" />
-                <BasketProductCardCount>{count}</BasketProductCardCount>
-                <ButtonWithIcon icon="plus" title={lang.plus} color="orange" />
-            </BasketProductCardCountWrapper>
+            <CardCounter index={index} card={card} />
           </BasketProductCardInnerWrapper>
 
           <BasketProductCardMiddleWrapper>
             <BasketProductCardTitle>{card.title}</BasketProductCardTitle>
-            <BasketProductCardPrice $color="gray">{`${card.price} ₽`}</BasketProductCardPrice>
+            <BasketProductCardPrice $color="gray">{`${normalizePrice(card.price)} ₽`}</BasketProductCardPrice>
           </BasketProductCardMiddleWrapper>
         </BasketProductCardContentWrapper>
 
         <BasketProductCardEndWrapper>
-          <ButtonWithIcon icon="bin" title={lang.delete} />
-          <BasketProductCardPrice>{`${card.price} ₽`}</BasketProductCardPrice>
+          <ButtonWithIcon icon="bin" title={lang.delete} click={handleReplaceClick} />
+          <BasketProductCardPrice>{`${normalizePrice(card.price)} ₽`}</BasketProductCardPrice>
         </BasketProductCardEndWrapper>
       </BasketProductCardArticle>
     </BasketProductCardItem>
   );
-};
+});

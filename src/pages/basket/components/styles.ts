@@ -1,5 +1,10 @@
-import { clampText, flexCenter, styledWrapper } from "@/common/styles/mixins";
-import { colors, fonts, transitions } from "@/common/styles/styleConstants";
+import { cardHoverActive, clampText, flexCenter, styledWrapper } from "@/common/styles/mixins";
+import {
+  colors,
+  device,
+  fonts,
+  transitions,
+} from "@/common/styles/styleConstants";
 import {
   HomeContentSection,
   HomeContentTitle,
@@ -24,9 +29,22 @@ export const BasketContentWrapper = styled("div")`
   align-items: start;
   justify-content: space-between;
   column-gap: 50px;
+
+  @media ${device.mobile} {
+    flex-direction: column-reverse;
+    justify-content: start;
+    align-items: center;
+    row-gap: 35px;
+  }
+
+  @media ${device.mobileL} {
+    row-gap: 25px;
+  }
 `;
 
-export const BasketContentSection = styled(HomeContentSection)``;
+export const BasketContentSection = styled(HomeContentSection)`
+  width: auto;
+`;
 
 export const BasketContentTitle = styled(HomeContentTitle)`
   color: ${colors.blue};
@@ -35,8 +53,16 @@ export const BasketContentTitle = styled(HomeContentTitle)`
 export const BasketProductCardList = styled("ul")`
   width: 633px;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   row-gap: 30px;
+
+  @media ${device.tablet} {
+    width: 450px;
+  }
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
 `;
 
 export const BasketProductCardItem = styled("li")`
@@ -54,8 +80,10 @@ export const BasketProductCardArticle = styled("article")`
   justify-content: space-between;
   transition: ${transitions.fastTransition};
 
-  &:hover {
-    transform: translateY(-10px);
+  ${cardHoverActive}
+
+  @media ${device.mobileM} {
+    padding: 10px;
   }
 `;
 
@@ -76,17 +104,6 @@ export const BasketProductCardImage = styled(HomeProductCardImage)`
   height: 136px;
 `;
 
-export const BasketProductCardCountWrapper = styled("div")`
-  ${flexCenter}
-  column-gap: 25px;
-`;
-
-export const BasketProductCardCount = styled("span")`
-  ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
-  font-weight: ${fonts.weights.semiBold};
-  color: ${colors.blackTotal};
-`;
-
 export const BasketProductCardMiddleWrapper = styled("div")`
   display: flex;
   align-items: start;
@@ -104,6 +121,10 @@ export const BasketProductCardPrice = styled(HomeProductCardPrice)<{
   ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)}
   color: ${(props) =>
     props.$color === "gray" ? colors.grayActive : colors.blue};
+
+  @media ${device.mobileM} {
+    display: ${(props) => props.$color !== "gray" && "none"};
+  }
 `;
 
 export const BasketProductCardEndWrapper = styled("div")`
@@ -123,6 +144,10 @@ export const BasketTotalSection = styled("section")`
   padding: 20px;
 
   position: relative;
+
+  @media ${device.mobileL} {
+    width: 100%;
+  }
 `;
 
 export const BasketTotalHeader = styled("header")`
