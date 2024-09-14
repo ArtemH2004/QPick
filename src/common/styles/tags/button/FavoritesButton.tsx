@@ -14,14 +14,14 @@ const favoritesActive = "public/images/icons/likedActive.svg";
 const Button = styled("button")`
   ${flexCenter};
   ${resetButton};
-  ${square(50)};
+  ${square(40)};
   border-radius: ${borders.circleBorderRadius};
 
   ${hoverActive}
 `;
 
 const Icon = styled("img")`
-  ${square(25)}
+  ${square(20)}
   object-fit: contain;
   object-position: center;
 `;

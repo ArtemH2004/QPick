@@ -9,6 +9,7 @@ import {
   HomeContentSection,
   HomeContentTitle,
   HomeProductCardImage,
+  HomeProductCardItemButton,
   HomeProductCardPrice,
   HomeProductCardTitle,
 } from "@/pages/home/components/styles";
@@ -79,13 +80,16 @@ export const BasketProductCardArticle = styled("article")`
   align-items: center;
   justify-content: space-between;
   transition: ${transitions.fastTransition};
-
+  position: relative;
+  
   ${cardHoverActive}
 
   @media ${device.mobileM} {
     padding: 10px;
   }
 `;
+
+export const BasketProductCardItemButton = styled(HomeProductCardItemButton)``;
 
 export const BasketProductCardContentWrapper = styled("div")`
   ${flexCenter}

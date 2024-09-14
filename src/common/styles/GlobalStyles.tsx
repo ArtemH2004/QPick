@@ -99,6 +99,11 @@ export const GlobalStyles = createGlobalStyle`
     transition-property: fill, stroke;
   } 
 
+  html,
+  body {
+    scrollbar-gutter: stable;
+  }
+
   body {
     font-family: "Montserrat", sans-serif;
     background-color: ${colors.grayBackground};

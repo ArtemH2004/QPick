@@ -6,7 +6,6 @@ import { getLanguage } from "@/common/helpers/getLanguage";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { useActions } from "@/store/actions";
-import { useState } from "react";
 import { ProductCard } from "@/store/reducers/card/types";
 
 const CardCountWrapper = styled("div")`
@@ -18,6 +17,7 @@ const CardCount = styled("span")`
   ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
   font-weight: ${fonts.weights.semiBold};
   color: ${colors.blackTotal};
+  user-select: none;
 `;
 
 interface CardCounterProps {
@@ -28,17 +28,15 @@ interface CardCounterProps {
 export const CardCounter = ({ index, card }: CardCounterProps) => {
   const lang = getLanguage();
   const basket = useSelector((state: RootState) => state.basket.count[index]);
-  const { increaseCardCount, decreaseCardCount } = useActions();
-  const [count, setCount] = useState(basket);
+  const { increaseCardCount, decreaseCardCount, replaceCardFromBasket } = useActions();
 
   const handleIncreaseClick = () => {
     increaseCardCount(card);
-    setCount(count + 1);
   };
 
   const handleDecreaseClick = () => {
+    basket === 1 && replaceCardFromBasket(card);
     decreaseCardCount(card);
-    setCount(count - 1);
   };
 
   return (
@@ -47,15 +45,15 @@ export const CardCounter = ({ index, card }: CardCounterProps) => {
         icon="minus"
         title={lang.minus}
         color="orange"
-          isActive={count === 1}
+        // isActive={basket === 1}
         click={handleDecreaseClick}
       />
-      <CardCount>{count}</CardCount>
+      <CardCount>{basket}</CardCount>
       <ButtonWithIcon
         icon="plus"
         title={lang.plus}
         color="orange"
-        isActive={count === 9}
+        isActive={basket === 9}
         click={handleIncreaseClick}
       />
     </CardCountWrapper>

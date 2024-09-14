@@ -9,23 +9,20 @@ import {
   HomeProductCardHeader,
   HomeProductCardImage,
   HomeProductCardItem,
+  HomeProductCardItemButton,
   HomeProductCardOldPrice,
   HomeProductCardPrice,
   HomeProductCardPriceWrapper,
-  HomeProductCardStarCount,
-  HomeProductCardStarIcon,
-  HomeProductCardStarWrapper,
   HomeProductCardTitle,
 } from "@/pages/home/components/styles";
 import { useActions } from "@/store/actions";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { CardCounter } from "@/common/components/CardCounter";
-import { VisuallyHidden } from "@/common/styles/GlobalStyles";
-import { memo } from "react";
+import { memo, useState } from "react";
 import { FavoritesButton } from "@/common/styles/tags/button/FavoritesButton";
-
-const star = "public/images/icons/star.svg";
+import { ModalMore } from "@/common/components/modal/ModalMore";
+import { Star } from "@/common/components/Star";
 
 interface HomeProductCardProps {
   card: ProductCard;
@@ -44,6 +41,7 @@ export const HomeProductCard = memo(({ card }: HomeProductCardProps) => {
   const isCardInBasket = basket.card.some((item) => item.id === card.id);
   const isCardInFavorites =
     favorites.card.some((item) => item.id == card.id) || false;
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const handleAddClick = () => {
     setCardInBasket(card);
@@ -58,6 +56,17 @@ export const HomeProductCard = memo(({ card }: HomeProductCardProps) => {
   return (
     <HomeProductCardItem>
       <HomeProductCardArticle>
+        <HomeProductCardItemButton onClick={() => setModalOpen(true)} />
+        <ModalMore
+          isOpen={isModalOpen}
+          setOpen={setModalOpen}
+          inBasket={isCardInBasket}
+          handleBasket={handleAddClick}
+          indexBasket={cardIndexInBasket}
+          inFavorites={isCardInFavorites}
+          handleFavorites={handleFavoritesClick}
+          card={card}
+        />
         <HomeProductCardFavoritesWrapper>
           <FavoritesButton
             title={
@@ -82,13 +91,7 @@ export const HomeProductCard = memo(({ card }: HomeProductCardProps) => {
           </HomeProductCardHeader>
 
           <HomeProductCardFooter>
-            <HomeProductCardStarWrapper title={lang.raiting}>
-              <VisuallyHidden>{lang.raiting}</VisuallyHidden>
-              <HomeProductCardStarIcon src={star} alt={lang.raiting} />
-              <HomeProductCardStarCount>
-                {card.raiting}
-              </HomeProductCardStarCount>
-            </HomeProductCardStarWrapper>
+            <Star raiting={card.raiting} />
             {!isCardInBasket ? (
               <BuyButton click={handleAddClick} />
             ) : (
