@@ -1,7 +1,9 @@
 import {
+  absCenter,
   cardHoverActive,
   clampText,
   flexCenter,
+  resetButton,
   styledWrapper,
 } from "@/common/styles/mixins";
 import {
@@ -80,11 +82,19 @@ export const HomeProductCardArticle = styled("article")`
   }
 `;
 
+export const HomeProductCardItemButton = styled("button")`
+  ${resetButton}
+  ${absCenter}
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+`;
+
 export const HomeProductCardFavoritesWrapper = styled("div")`
   position: absolute;
   top: 15px;
   right: 15px;
-  z-index: 1;
+  z-index: 2;
   ${flexCenter}
 `;
 
@@ -143,24 +153,8 @@ export const HomeProductCardOldPrice = styled("span")`
 `;
 
 export const HomeProductCardFooter = styled("footer")`
+  min-height: 33px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
-
-export const HomeProductCardStarWrapper = styled("div")`
-  ${flexCenter}
-  column-gap: 10px;
-  user-select: none;
-`;
-
-export const HomeProductCardStarIcon = styled("img")`
-  width: 23px;
-  height: 22px;
-  object-fit: contain;
-  object-position: center;
-`;
-
-export const HomeProductCardStarCount = styled(HomeProductCardPrice)`
-  color: ${colors.grayText};
 `;

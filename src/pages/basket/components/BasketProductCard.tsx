@@ -8,6 +8,7 @@ import {
   BasketProductCardImage,
   BasketProductCardInnerWrapper,
   BasketProductCardItem,
+  BasketProductCardItemButton,
   BasketProductCardMiddleWrapper,
   BasketProductCardPrice,
   BasketProductCardTitle,
@@ -15,7 +16,8 @@ import {
 import { useActions } from "@/store/actions";
 import { normalizePrice } from "@/common/helpers/normalizePrice";
 import { CardCounter } from "@/common/components/CardCounter";
-import { memo } from "react";
+import { memo, useState } from "react";
+import { ModalMore } from "@/common/components/modal/ModalMore";
 
 interface BasketProductCardProps {
   index: number;
@@ -24,7 +26,12 @@ interface BasketProductCardProps {
 
 export const BasketProductCard = memo(({ index, card }: BasketProductCardProps) => {
   const lang = getLanguage();
-  const { replaceCardFromBasket } = useActions();
+  const { setCardInBasket, replaceCardFromBasket } = useActions();
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleAddClick = () => {
+    setCardInBasket(card);
+  };
 
   const handleReplaceClick = () => {
     replaceCardFromBasket(card);
@@ -33,6 +40,16 @@ export const BasketProductCard = memo(({ index, card }: BasketProductCardProps) 
   return (
     <BasketProductCardItem>
       <BasketProductCardArticle>
+      <BasketProductCardItemButton onClick={() => setModalOpen(true)} />
+        <ModalMore
+          isOpen={isModalOpen}
+          setOpen={setModalOpen}
+          inBasket={true}
+          handleBasket={handleAddClick}
+          indexBasket={index}
+          card={card}
+        />
+
         <BasketProductCardContentWrapper>
           <BasketProductCardInnerWrapper>
             <BasketProductCardImage src={card.img} alt={card.title} />

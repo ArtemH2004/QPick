@@ -10,6 +10,7 @@ const Button = styled("button")`
   color: ${colors.blackTotal};
   border-radius: ${borders.mediumBorderRadius};
   padding: 5px 10px;
+  z-index: 2;
   ${buttonHoverActive}
   ${opacityHoverActive}
 `;

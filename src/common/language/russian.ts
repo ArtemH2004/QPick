@@ -19,4 +19,6 @@ export const russianLanguage = {
     removeFromFavorites: 'Удалить из избранного',
     errorMessage: 'Страница не найдена',
     homeLink: 'Вернуться на главную',
+    more: 'Подробнее',
+    close: 'Закрыть',
 }

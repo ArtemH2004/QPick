@@ -19,4 +19,6 @@ export const englishLanguage = {
     removeFromFavorites: 'Remove from favorites',
     errorMessage: 'Page not found',
     homeLink: 'Return to home',
+    more: 'More',
+    close: 'Close',
 }

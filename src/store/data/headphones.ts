@@ -13,7 +13,7 @@ export const headphones: ProductCard[] = [
     img: img1,
     title: "Apple BYZ S852I",
     description:
-      "Lorem Ipsum - это текст-'рыба', часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной 'рыбой' для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
+      "Lorem ipsum dolor sit amet. Eos corporis veritatis vel minus deleniti hic beatae cupiditate ab omnis nihil aut minus enim et deserunt consectetur. Sed quia sapiente ea esse omnis aut corporis consequatur id consequatur quis aut velit omnis est asperiores aliquam. Et reiciendis porro et aperiam voluptates eos culpa totam. Qui quia distinctio vel quia quia At doloremque esse et galisum eligendi qui provident dolor quo voluptas sunt.",
     price: 2927,
     oldPrice: 3527,
     raiting: 4.7,
@@ -24,7 +24,7 @@ export const headphones: ProductCard[] = [
     img: img2,
     title: "Apple Earpods",
     description:
-      "Lorem Ipsum - это текст-'рыба', часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной 'рыбой' для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
+      "Lorem ipsum dolor sit amet. Eos corporis veritatis vel minus deleniti hic beatae cupiditate ab omnis nihil aut minus enim et deserunt consectetur. Sed quia sapiente ea esse omnis aut corporis consequatur id consequatur quis aut velit omnis est asperiores aliquam. Et reiciendis porro et aperiam voluptates eos culpa totam. Qui quia distinctio vel quia quia At doloremque esse et galisum eligendi qui provident dolor quo voluptas sunt.",
     price: 2327,
     raiting: 4.5,
     type: "wired",
@@ -34,7 +34,7 @@ export const headphones: ProductCard[] = [
     img: img3,
     title: "Apple Earpods",
     description:
-      "Lorem Ipsum - это текст-'рыба', часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной 'рыбой' для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
+      "Lorem ipsum dolor sit amet. Eos corporis veritatis vel minus deleniti hic beatae cupiditate ab omnis nihil aut minus enim et deserunt consectetur. Sed quia sapiente ea esse omnis aut corporis consequatur id consequatur quis aut velit omnis est asperiores aliquam. Et reiciendis porro et aperiam voluptates eos culpa totam. Qui quia distinctio vel quia quia At doloremque esse et galisum eligendi qui provident dolor quo voluptas sunt.",
     price: 2327,
     raiting: 4.5,
     type: "wired",
@@ -44,7 +44,7 @@ export const headphones: ProductCard[] = [
     img: img1,
     title: "Apple BYZ S852I",
     description:
-      "Lorem Ipsum - это текст-'рыба', часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной 'рыбой' для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
+      "Lorem ipsum dolor sit amet. Eos corporis veritatis vel minus deleniti hic beatae cupiditate ab omnis nihil aut minus enim et deserunt consectetur. Sed quia sapiente ea esse omnis aut corporis consequatur id consequatur quis aut velit omnis est asperiores aliquam. Et reiciendis porro et aperiam voluptates eos culpa totam. Qui quia distinctio vel quia quia At doloremque esse et galisum eligendi qui provident dolor quo voluptas sunt.",
     price: 2927,
     raiting: 4.7,
     type: "wired",
@@ -54,7 +54,7 @@ export const headphones: ProductCard[] = [
     img: img2,
     title: "Apple Earpods",
     description:
-      "Lorem Ipsum - это текст-'рыба', часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной 'рыбой' для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
+      "Lorem ipsum dolor sit amet. Eos corporis veritatis vel minus deleniti hic beatae cupiditate ab omnis nihil aut minus enim et deserunt consectetur. Sed quia sapiente ea esse omnis aut corporis consequatur id consequatur quis aut velit omnis est asperiores aliquam. Et reiciendis porro et aperiam voluptates eos culpa totam. Qui quia distinctio vel quia quia At doloremque esse et galisum eligendi qui provident dolor quo voluptas sunt.",
     price: 2327,
     raiting: 4.5,
     type: "wired",
@@ -64,7 +64,7 @@ export const headphones: ProductCard[] = [
     img: img3,
     title: "Apple Earpods",
     description:
-      "Lorem Ipsum - это текст-'рыба', часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной 'рыбой' для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
+      "Lorem ipsum dolor sit amet. Eos corporis veritatis vel minus deleniti hic beatae cupiditate ab omnis nihil aut minus enim et deserunt consectetur. Sed quia sapiente ea esse omnis aut corporis consequatur id consequatur quis aut velit omnis est asperiores aliquam. Et reiciendis porro et aperiam voluptates eos culpa totam. Qui quia distinctio vel quia quia At doloremque esse et galisum eligendi qui provident dolor quo voluptas sunt.",
     price: 2327,
     raiting: 4.5,
     type: "wired",
@@ -74,7 +74,7 @@ export const headphones: ProductCard[] = [
     img: img4,
     title: "Apple AirPods",
     description:
-      "Lorem Ipsum - это текст-'рыба', часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной 'рыбой' для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
+      "Lorem ipsum dolor sit amet. Eos corporis veritatis vel minus deleniti hic beatae cupiditate ab omnis nihil aut minus enim et deserunt consectetur. Sed quia sapiente ea esse omnis aut corporis consequatur id consequatur quis aut velit omnis est asperiores aliquam. Et reiciendis porro et aperiam voluptates eos culpa totam. Qui quia distinctio vel quia quia At doloremque esse et galisum eligendi qui provident dolor quo voluptas sunt.",
     price: 9527,
     raiting: 4.7,
     type: "wireless",
@@ -84,7 +84,7 @@ export const headphones: ProductCard[] = [
     img: img5,
     title: "GERLAX GH-04",
     description:
-      "Lorem Ipsum - это текст-'рыба', часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной 'рыбой' для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
+      "Lorem ipsum dolor sit amet. Eos corporis veritatis vel minus deleniti hic beatae cupiditate ab omnis nihil aut minus enim et deserunt consectetur. Sed quia sapiente ea esse omnis aut corporis consequatur id consequatur quis aut velit omnis est asperiores aliquam. Et reiciendis porro et aperiam voluptates eos culpa totam. Qui quia distinctio vel quia quia At doloremque esse et galisum eligendi qui provident dolor quo voluptas sunt.",
     price: 6527,
     raiting: 4.7,
     type: "wireless",
@@ -94,7 +94,7 @@ export const headphones: ProductCard[] = [
     img: img6,
     title: "BOROFONE BO4",
     description:
-      "Lorem Ipsum - это текст-'рыба', часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной 'рыбой' для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
+      "Lorem ipsum dolor sit amet. Eos corporis veritatis vel minus deleniti hic beatae cupiditate ab omnis nihil aut minus enim et deserunt consectetur. Sed quia sapiente ea esse omnis aut corporis consequatur id consequatur quis aut velit omnis est asperiores aliquam. Et reiciendis porro et aperiam voluptates eos culpa totam. Qui quia distinctio vel quia quia At doloremque esse et galisum eligendi qui provident dolor quo voluptas sunt.",
     price: 6527,
     raiting: 4.7,
     type: "wireless",
