@@ -8,7 +8,7 @@ import {
 import { PageWrapper } from "@/pages/PageWrapper";
 import { HomeContent } from "@/pages/home/components/HomeContent";
 import { BasketContent } from "@/pages/basket/components/BasketContent";
-import { OrderContent } from "@/pages/order/OrderContent";
+import { OrderContent } from "@/pages/order/components/OrderContent";
 import { FavoritesContent } from "@/pages/favorites/FavoritesContent";
 import { ErrorPage } from "@/pages/error/ErrorPage";
 

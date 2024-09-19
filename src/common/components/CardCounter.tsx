@@ -45,7 +45,6 @@ export const CardCounter = ({ index, card }: CardCounterProps) => {
         icon="minus"
         title={lang.minus}
         color="orange"
-        // isActive={basket === 1}
         click={handleDecreaseClick}
       />
       <CardCount>{basket}</CardCount>

@@ -3,13 +3,12 @@ import {
   clampWidth,
   flexCenter,
   square,
+  styledWrapper,
 } from "@/common/styles/mixins";
 import {
-  borders,
   colors,
   device,
   fonts,
-  shadows,
   transitions,
 } from "@/common/styles/styleConstants";
 import styled from "styled-components";
@@ -28,10 +27,8 @@ export const ModalSection = styled("section")`
 `;
 
 export const ModalContent = styled("div")<{ $visible: boolean }>`
+  ${styledWrapper}
   position: relative;
-  background: ${colors.grayBackground};
-  border-radius: ${borders.defaultBorderRadius};
-  box-shadow: ${shadows.defaultShadow};
   height: fit-content;
   width: fit-content;
   transition: ${transitions.lowTransition};

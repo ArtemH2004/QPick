@@ -8,7 +8,7 @@ import {
   OrderProductsImage,
   OrderProductsItem,
   OrderProductsPrice,
-} from "@/pages/order/components/styles";
+} from "@/pages/order/components/products/styles";
 import { ModalCountCard } from "@/common/components/modal/ModalCountCard";
 import { useState } from "react";
 

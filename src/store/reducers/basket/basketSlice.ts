@@ -56,6 +56,8 @@ const basketSlice = createSlice({
         state.count[currentCardIndex] -= 1;
       }
     },
+
+    clearBasket: () => initialState,
   },
 });
 
@@ -64,6 +66,7 @@ export const {
   replaceCardFromBasket,
   increaseCardCount,
   decreaseCardCount,
+  clearBasket,
 } = basketSlice.actions;
 export const basketReducer = basketSlice.reducer;
 export const basketActions = basketSlice.actions;

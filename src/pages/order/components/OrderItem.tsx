@@ -1,8 +1,8 @@
 import { OrderContentItem, OrderItemTitle } from "@/pages/order/components/styles";
-import { OrderPayment } from "@/pages/order/components/OrderPayment";
-import { OrderObtaining } from "@/pages/order/components/OrderObtaining";
-import { OrderRecipient } from "@/pages/order/components/OrderRecipient";
-import { OrderProducts } from "@/pages/order/components/OrderProducts";
+import { OrderPayment } from "@/pages/order/components/payment/OrderPayment";
+import { OrderObtaining } from "@/pages/order/components/obtaining/OrderObtaining";
+import { OrderRecipient } from "@/pages/order/components/recipient/OrderRecipient";
+import { OrderProducts } from "@/pages/order/components/products/OrderProducts";
 
 interface OrderItemProps {
     title: string;

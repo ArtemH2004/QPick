@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { flexCenter, resetButton } from "@/common/styles/mixins";
 import { colors, borders } from "@/common/styles/styleConstants";
-import { VisuallyHidden } from "../../GlobalStyles";
+import { VisuallyHidden } from "@/common/styles/GlobalStyles";
 
 const Button = styled("button")<{ $card: string; $isActive?: boolean }>`
   ${resetButton}

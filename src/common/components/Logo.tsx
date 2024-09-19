@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import { VisuallyHidden } from "@/common/styles/GlobalStyles";
-import { scrollToTop } from "../helpers/scrollToTop";
+import { scrollToTop } from "@/common/helpers/scrollToTop";
 
 const logo = "public/images/icons/logo.svg";
-
 
 export const Logo = () => {
   return (
