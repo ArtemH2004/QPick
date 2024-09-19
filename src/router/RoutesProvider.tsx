@@ -8,6 +8,7 @@ import {
 import { PageWrapper } from "@/pages/PageWrapper";
 import { HomeContent } from "@/pages/home/components/HomeContent";
 import { BasketContent } from "@/pages/basket/components/BasketContent";
+import { OrderContent } from "@/pages/order/OrderContent";
 import { FavoritesContent } from "@/pages/favorites/FavoritesContent";
 import { ErrorPage } from "@/pages/error/ErrorPage";
 
@@ -19,6 +20,7 @@ export default function RoutesProvider() {
           <Route index element={<Navigate to="/home" />} />
           <Route path="home" element={<HomeContent />} />
           <Route path="basket" element={<BasketContent />} />
+          <Route path="order" element={<OrderContent />} />
           <Route path="favorites" element={<FavoritesContent />} />
         </Route>
         <Route path="error" element={<ErrorPage />} />

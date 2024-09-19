@@ -1,6 +1,8 @@
 import { ProductCard } from "@/store/reducers/card/types";
 import Modal from "@/common/components/modal/Modal";
 import {
+  ModalMoreAboutTitle,
+  ModalMoreAboutWrapper,
   ModalMoreContentWrapper,
   ModalMoreCurrentPrice,
   ModalMoreDescription,
@@ -12,7 +14,6 @@ import {
   ModalMorePriceWrapper,
   ModalMoreTitle,
   ModalMoreWrapper,
-  ModalScrollContentWrapper,
 } from "@/common/components/modal/styles";
 import { Star } from "@/common/components/Star";
 import { normalizePrice } from "@/common/helpers/normalizePrice";
@@ -27,6 +28,7 @@ interface ModalMoreProps {
   inBasket: boolean;
   handleBasket: () => void;
   indexBasket: number;
+  isaFavoritesActive: boolean;
   inFavorites?: boolean;
   handleFavorites?: () => void;
   card: ProductCard;
@@ -38,57 +40,62 @@ export const ModalMore = ({
   inBasket,
   handleBasket,
   indexBasket,
+  isaFavoritesActive,
   inFavorites,
   handleFavorites,
   card,
 }: ModalMoreProps) => {
   const lang = getLanguage();
   return (
-    <Modal isOpen={isOpen} onClose={() => setOpen(false)} title={lang.more}>
-      <ModalScrollContentWrapper>
-        <ModalMoreWrapper>
-          <ModalMoreImageWrapper>
-            <ModalMoreImage src={card.img} alt={card.title} />
+    <Modal isOpen={isOpen} onClose={() => setOpen(false)} title={lang.about}>
+      <ModalMoreWrapper>
+        <ModalMoreImageWrapper>
+          <ModalMoreImage src={card.img} alt={card.title} />
 
-              <ModalMoreFavoritesWrapper>
-                <FavoritesButton
-                  title={
-                    inFavorites ? lang.removeFromFavorites : lang.addToFavorites
-                  }
-                  isActive={inFavorites}
-                  click={handleFavorites}
-                />
-              </ModalMoreFavoritesWrapper>
-          </ModalMoreImageWrapper>
+          {isaFavoritesActive && (
+            <ModalMoreFavoritesWrapper>
+              <FavoritesButton
+                title={
+                  inFavorites ? lang.removeFromFavorites : lang.addToFavorites
+                }
+                isActive={inFavorites}
+                click={handleFavorites}
+              />
+            </ModalMoreFavoritesWrapper>
+          )}
+        </ModalMoreImageWrapper>
 
-          <ModalMoreContentWrapper>
-            <ModalMoreInnerWrapper>
-              <ModalMoreTitle>{card.title}</ModalMoreTitle>
-              <Star raiting={card.raiting} />
-            </ModalMoreInnerWrapper>
+        <ModalMoreContentWrapper>
+          <ModalMoreInnerWrapper>
+            <ModalMoreTitle>{card.title}</ModalMoreTitle>
+            <Star raiting={card.raiting} />
+          </ModalMoreInnerWrapper>
+
+          <ModalMoreAboutWrapper>
+            <ModalMoreAboutTitle>{lang.characteristics}</ModalMoreAboutTitle>
             <ModalMoreDescription>{card.description}</ModalMoreDescription>
+          </ModalMoreAboutWrapper>
 
-            <ModalMoreInnerWrapper>
-              <ModalMorePriceWrapper>
-                <ModalMoreCurrentPrice>{`${normalizePrice(
-                  card.price
-                )} ₽`}</ModalMoreCurrentPrice>
-                {!!card.oldPrice && (
-                  <ModalMoreOldPrice>{`${normalizePrice(
-                    card.oldPrice
-                  )} ₽`}</ModalMoreOldPrice>
-                )}
-              </ModalMorePriceWrapper>
-
-              {!inBasket ? (
-                <BuyButton click={handleBasket} />
-              ) : (
-                <CardCounter index={indexBasket} card={card} />
+          <ModalMoreInnerWrapper>
+            <ModalMorePriceWrapper>
+              <ModalMoreCurrentPrice>{`${normalizePrice(
+                card.price
+              )} ₽`}</ModalMoreCurrentPrice>
+              {!!card.oldPrice && (
+                <ModalMoreOldPrice>{`${normalizePrice(
+                  card.oldPrice
+                )} ₽`}</ModalMoreOldPrice>
               )}
-            </ModalMoreInnerWrapper>
-          </ModalMoreContentWrapper>
-        </ModalMoreWrapper>
-      </ModalScrollContentWrapper>
+            </ModalMorePriceWrapper>
+
+            {!inBasket ? (
+              <BuyButton click={handleBasket} />
+            ) : (
+              <CardCounter index={indexBasket} card={card} />
+            )}
+          </ModalMoreInnerWrapper>
+        </ModalMoreContentWrapper>
+      </ModalMoreWrapper>
     </Modal>
   );
 };

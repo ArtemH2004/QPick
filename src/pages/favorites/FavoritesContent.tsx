@@ -20,7 +20,7 @@ export const FavoritesContent = () => {
   }, []);
 
   return (
-    <div style={{ minHeight: "75vh" }}>
+    <div style={{ minHeight: "80vh" }}>
       <HomeContentSection>
         <BasketContentTitle>{lang.favorites}</BasketContentTitle>
         {favorites.length !== 0 ? (

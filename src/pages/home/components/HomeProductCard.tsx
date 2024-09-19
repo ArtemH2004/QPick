@@ -63,6 +63,7 @@ export const HomeProductCard = memo(({ card }: HomeProductCardProps) => {
           inBasket={isCardInBasket}
           handleBasket={handleAddClick}
           indexBasket={cardIndexInBasket}
+          isaFavoritesActive={true}
           inFavorites={isCardInFavorites}
           handleFavorites={handleFavoritesClick}
           card={card}

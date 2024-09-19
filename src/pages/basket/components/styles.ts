@@ -25,14 +25,14 @@ export const BasketInnerWrapper = styled("div")`
 
 export const BasketContentWrapper = styled("div")`
   width: 100%;
-  min-height: 75vh;
+  min-height: 80vh;
   display: flex;
   align-items: start;
   justify-content: space-between;
   column-gap: 50px;
 
   @media ${device.mobile} {
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: start;
     align-items: center;
     row-gap: 35px;
@@ -81,7 +81,7 @@ export const BasketProductCardArticle = styled("article")`
   justify-content: space-between;
   transition: ${transitions.fastTransition};
   position: relative;
-  
+
   ${cardHoverActive}
 
   @media ${device.mobileM} {
@@ -148,6 +148,10 @@ export const BasketTotalSection = styled("section")`
   padding: 20px;
 
   position: relative;
+
+  @media ${device.mobile} {
+    width: 450px;
+  }
 
   @media ${device.mobileL} {
     width: 100%;

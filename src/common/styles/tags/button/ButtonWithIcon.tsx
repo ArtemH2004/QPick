@@ -12,6 +12,7 @@ const bin = "public/images/icons/bin.svg";
 const plus = "public/images/icons/plus.svg";
 const minus = "public/images/icons/minus.svg";
 const close = "public/images/icons/close.svg";
+const edit = "public/images/icons/edit.svg";
 
 const Button = styled("button")<{ $color?: string; $isActive?: boolean }>`
   ${flexCenter};
@@ -52,7 +53,17 @@ export const ButtonWithIcon = ({
     <Button $color={color} $isActive={isActive} title={title} onClick={click}>
       <VisuallyHidden>{title}</VisuallyHidden>
       <Icon
-        src={icon === "bin" ? bin : icon === "plus" ? plus : icon === 'minus' ?  minus : close}
+        src={
+          icon === "bin"
+            ? bin
+            : icon === "plus"
+            ? plus
+            : icon === "minus"
+            ? minus
+            : icon === "close"
+            ? close
+            : edit
+        }
         alt={title}
       />
     </Button>

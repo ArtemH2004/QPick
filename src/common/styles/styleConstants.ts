@@ -45,6 +45,7 @@ export const device = {
 export const colors = {
   //White
   whiteTotal: "rgba(255, 255, 255, 1)",
+  whiteAccent: "rgba(245, 245, 245, 1)",
 
   //Gray
   grayBackground: "rgba(234, 234, 234, 1)",
@@ -70,6 +71,9 @@ export const colors = {
   orange: "rgba(255, 165, 66, 1)",
   orangeAccent: "rgba(255, 206, 127, 1)",
 
+  //Green 
+  green: 'rgba(33, 160, 56, 1)',
+
   //Blue
   blue: 'rgba(28, 28, 39, 1)',
 };
@@ -82,6 +86,7 @@ export const shadows = {
 
 export const borders = {
   defaultBorder: `1px solid ${colors.blackTotal}`,
+  grayBorder: `1px solid ${colors.grayScrollBar}`,
   
   smallBorderRadius: "5px",
   mediumBorderRadius: "20px",

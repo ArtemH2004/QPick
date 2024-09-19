@@ -192,13 +192,13 @@ export const cardHoverActive = css`
   @media (hover: hover) {
     &:hover,
     &:active {
-      box-shadow: ${shadows.hoverShadow}
+      box-shadow: ${shadows.hoverShadow};
     }
   }
 
   @media (hover: none) {
     &:active {
-      box-shadow: ${shadows.hoverShadow}
+      box-shadow: ${shadows.hoverShadow};
     }
   }
 `;
