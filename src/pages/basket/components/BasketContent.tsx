@@ -17,6 +17,7 @@ import { Empty } from "@/common/components/Empty";
 
 export const BasketContent = () => {
   const lang = getLanguage();
+  const price = totalPrice();
 
   const basket = useSelector((state: RootState) => state.basket.card);
 
@@ -41,7 +42,7 @@ export const BasketContent = () => {
           )}
         </BasketContentSection>
 
-        <BasketTotal title={lang.total} value={totalPrice()} />
+        <BasketTotal title={lang.total} value={price} link="/order" isActive={price !== 0 ? false : true} />
       </BasketContentWrapper>
     </BasketInnerWrapper>
   );

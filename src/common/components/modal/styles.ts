@@ -2,7 +2,7 @@ import {
   clampText,
   clampWidth,
   flexCenter,
-  scrollBar,
+  square,
 } from "@/common/styles/mixins";
 import {
   borders,
@@ -58,7 +58,8 @@ export const ModalContentWrapper = styled("div")`
 `;
 
 export const ModalWrapper = styled("div")`
-  width: 70vw;
+  width: 100%;
+  max-width: 70vw;
   height: 100%;
   max-height: 90vh;
   padding: 30px;
@@ -103,30 +104,19 @@ export const ModalCloseIconWrapper = styled("div")`
   z-index: 1;
 `;
 
-export const ModalScrollContentWrapper = styled("div")`
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  padding-inline: 40px;
-  max-height: 70vh;
-  overflow-y: auto;
+export const ModalButtonWrapper = styled("div")`
+  ${flexCenter}
+  gap: 10px;
 
-  @media ${device.desktop} {
-    gap: 20px;
-    padding-inline: 30px;
+  @media ${device.mobileL} {
+    flex-direction: column;
   }
-
-  @media ${device.tablet} {
-    gap: 15px;
-    padding-inline: 20px;
-  }
-
-  ${scrollBar}
 `;
 
-//ModalMore
+//Modal More
 export const ModalMoreWrapper = styled("div")`
   ${flexCenter}
+  overflow: hidden;
   width: 100%;
   column-gap: 50px;
 
@@ -169,8 +159,16 @@ export const ModalMoreContentWrapper = styled("div")`
   width: 100%;
   display: flex;
   flex-direction: column;
-  row-gap: 15px;
+  row-gap: 20px;
   text-align: left;
+
+  @media ${device.tablet} {
+    row-gap: 15px;
+  }
+
+  @media ${device.mobileL} {
+    row-gap: 10px;
+  }
 `;
 
 export const ModalMoreInnerWrapper = styled("div")`
@@ -183,9 +181,26 @@ export const ModalMoreInnerWrapper = styled("div")`
 
 export const ModalMoreTitle = styled("h3")`
   text-align: left;
+  line-height: 1;
   ${clampText(fonts.sizes.subtitleMobile, fonts.sizes.subtitle)};
   font-weight: ${fonts.weights.semiBold};
   color: ${colors.blue};
+`;
+
+export const ModalMoreAboutWrapper = styled("div")`
+  width: 100%;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  row-gap: 3px;
+`;
+
+export const ModalMoreAboutTitle = styled("h4")`
+  text-align: left;
+  text-transform: uppercase;
+  ${clampText(fonts.sizes.subtitleMobile, fonts.sizes.subtitle)};
+  font-weight: ${fonts.weights.medium};
+  color: ${colors.grayText};
 `;
 
 export const ModalMoreDescription = styled("p")`
@@ -219,4 +234,74 @@ export const ModalMoreOldPrice = styled("span")`
   font-weight: ${fonts.weights.medium};
   text-decoration: line-through;
   color: ${colors.orangeAccent};
+`;
+
+//Modal Count Card
+export const ModalCountCardInnerWrapper = styled("div")`
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 50px;
+
+  @media ${device.mobile} {
+    justify-content: center;
+    column-gap: 25px;
+  }
+
+  @media ${device.mobileL} {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+`;
+
+export const ModalCountCardContentWrapper = styled("div")`
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  column-gap: 50px;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  @media ${device.mobile} {
+    align-items: center;
+    row-gap: 10px;
+  }
+`;
+
+export const ModalCountCardImage = styled(ModalMoreImage)`
+  ${square(150)}
+`;
+
+export const ModalCountCardPriceWrapper = styled("div")`
+  ${flexCenter}
+  flex-direction: column;
+  row-gap: 10px;
+`;
+
+export const ModalCountCardCurrentPrice = styled(ModalMoreCurrentPrice)`
+  ${clampText(fonts.sizes.subtitleMobile, fonts.sizes.subtitle)}
+`;
+
+export const ModalCountCardOldPrice = styled(ModalMoreOldPrice)`
+  ${clampText(fonts.sizes.mainMobile, fonts.sizes.main)}
+`;
+
+export const ModalCountCardPrice = styled(ModalMoreCurrentPrice)`
+  ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)}
+  font-weight: ${fonts.weights.medium};
+  color: ${colors.grayText};
+
+  @media ${device.mobile} {
+    display: none;
+  }
+`;
+
+export const ModalCountCardCount = styled(ModalMoreCurrentPrice)`
+  ${clampText(fonts.sizes.smallMobile, fonts.sizes.small)}
+  font-weight: ${fonts.weights.semiBold};
+  color: ${colors.blackAccent};
 `;

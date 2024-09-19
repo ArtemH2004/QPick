@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import {
   absBottom,
   buttonHoverActive,
@@ -9,9 +9,9 @@ import {
 } from "@/common/styles/mixins";
 import { getLanguage } from "@/common/helpers/getLanguage";
 import { borders, colors, fonts } from "@/common/styles/styleConstants";
+import { Link } from "react-router-dom";
 
-const Button = styled("button")<{$isActive: boolean}>`
-  ${resetButton}
+const styledButton = css`
   ${flexCenter}
   ${absBottom}
   z-index: 1;
@@ -21,20 +21,48 @@ const Button = styled("button")<{$isActive: boolean}>`
   width: 100%;
   height: 65px;
   border-radius: ${borders.mediumBorderRadius};
-  background-color: ${(props) => props.$isActive ? colors.grayText : colors.blackAccent};
-  pointer-events: ${(props) => props.$isActive && 'none'};
   color: ${colors.whiteTotal};
 
   ${buttonHoverActive}
   ${opacityHoverActive}
 `;
 
+const Button = styled("button")<{ $isActive: boolean }>`
+  ${styledButton}
+  ${resetButton}
+
+  background-color: ${(props) =>
+    props.$isActive ? colors.grayText : colors.blackAccent};
+  pointer-events: ${(props) => props.$isActive && "none"};
+`;
+
+const LinkTo = styled(Link)<{ $isActive: boolean }>`
+  ${styledButton}
+  background-color: ${(props) =>
+    props.$isActive ? colors.grayText : colors.blackAccent};
+  pointer-events: ${(props) => props.$isActive && "none"};
+`;
+
 interface OrderButtonProps {
   isActive: boolean;
+  link?: string;
+  click?: () => void;
 }
 
-export const OrderButton = ({isActive}: OrderButtonProps) => {
+export const OrderButton = ({ isActive, link, click }: OrderButtonProps) => {
   const lang = getLanguage();
 
-  return <Button $isActive={isActive}>{lang.order}</Button>;
+  return (
+    <>
+      {!!link ? (
+        <LinkTo to={link} $isActive={isActive}>
+          {lang.checkoutButton}
+        </LinkTo>
+      ) : (
+        <Button $isActive={isActive} onClick={click}>
+          {lang.buyButton}
+        </Button>
+      )}
+    </>
+  );
 };

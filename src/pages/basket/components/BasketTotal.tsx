@@ -9,10 +9,13 @@ import {
 
 interface BasketTotalProps {
   title: string;
+  link?: string;
+  click?: () => void;
   value?: number;
+  isActive: boolean;
 }
 
-export const BasketTotal = ({ title, value }: BasketTotalProps) => {
+export const BasketTotal = ({ title, link, click, value, isActive }: BasketTotalProps) => {
   return (
     <BasketTotalSection>
       <BasketTotalHeader>
@@ -20,7 +23,7 @@ export const BasketTotal = ({ title, value }: BasketTotalProps) => {
         <BasketTotalValue>{`₽ ${normalizePrice(!!value ? value : 0)}`}</BasketTotalValue>
       </BasketTotalHeader>
 
-      <OrderButton isActive={value === 0} />
+      <OrderButton isActive={isActive} link={link} click={click} />
     </BasketTotalSection>
   );
 };

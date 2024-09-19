@@ -4,32 +4,41 @@ import {
   absTopRight,
   flexCenter,
   hoverActive,
-  resetButton,
   square,
 } from "@/common/styles/mixins";
 import { Link } from "react-router-dom";
-import { borders, colors, fonts } from "@/common/styles/styleConstants";
+import {
+  borders,
+  colors,
+  fonts,
+  transitions,
+} from "@/common/styles/styleConstants";
 import { scrollToTop } from "@/common/helpers/scrollToTop";
 
-const basket = 'public/images/icons/basket.svg';
-const favorites = 'public/images/icons/liked.svg';
+const basket = "public/images/icons/basket.svg";
+const favorites = "public/images/icons/liked.svg";
 
-const Button = styled("button")`
-  ${resetButton};
+const NavLink = styled(Link)`
   ${square(60)}
-  position: relative;
   border-radius: ${borders.circleBorderRadius};
+`;
 
+const LinkWrapper = styled("div")`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: inherit;
+  transition: ${transitions.fastTransition};
   ${hoverActive}
 `;
 
-const ButtonImg = styled("img")`
+const Image = styled("img")`
   ${absCenter}
   z-index: 1;
   ${square(25)}
 `;
 
-export const ButtonCountWrapper = styled("div")`
+export const CountWrapper = styled("div")`
   ${flexCenter}
   ${absTopRight}
   z-index: 2;
@@ -60,13 +69,15 @@ export const ButtonWithCount = ({
   link,
 }: ButtonWithCountProps) => {
   return (
-    <Link to={link || '/'} onClick={scrollToTop}>
-      <Button title={title}>
-        <ButtonImg src={icon === 'basket' ? basket : favorites} alt={title} />
-        <ButtonCountWrapper>
-          <Count>{count}</Count>
-        </ButtonCountWrapper>
-      </Button>
-    </Link>
+    <NavLink to={link || "/"} onClick={scrollToTop} title={title}>
+      <LinkWrapper>
+        <Image src={icon === "basket" ? basket : favorites} alt={title} />
+        {count !== 0 && (
+          <CountWrapper>
+            <Count>{count}</Count>
+          </CountWrapper>
+        )}
+      </LinkWrapper>
+    </NavLink>
   );
 };

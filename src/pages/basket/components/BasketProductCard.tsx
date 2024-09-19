@@ -47,6 +47,7 @@ export const BasketProductCard = memo(({ index, card }: BasketProductCardProps) 
           inBasket={true}
           handleBasket={handleAddClick}
           indexBasket={index}
+          isaFavoritesActive={false}
           card={card}
         />
 
