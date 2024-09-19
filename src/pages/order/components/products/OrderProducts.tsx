@@ -1,9 +1,7 @@
-import {
-  OrderProductsList,
-} from "@/pages/order/components/styles";
+import { OrderProductsList } from "@/pages/order/components/products/styles";
 import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
-import { OrderProductCard } from "@/pages/order/components/OrderProductCard";
+import { OrderProductCard } from "@/pages/order/components/products/OrderProductCard";
 
 export const OrderProducts = () => {
   const basket = useSelector((state: RootState) => state.basket);

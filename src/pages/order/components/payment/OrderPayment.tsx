@@ -1,10 +1,10 @@
 import { ModalBankCard } from "@/common/components/modal/ModalBankCard";
 import { PaymentCardButton } from "@/common/styles/tags/button/PaymentCardButton";
-import { OrderPaymentList } from "@/pages/order/components/styles";
+import { OrderCardItem } from "@/pages/order/components/payment/OrderCardItem";
+import { OrderPaymentList } from "@/pages/order/components/payment/styles";
 import { RootState } from "@/store/store";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { OrderCardItem } from "./OrderCardItem";
 
 export const OrderPayment = () => {
   const [isModalOpen, setModalOpen] = useState(false);

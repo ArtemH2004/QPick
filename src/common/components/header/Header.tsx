@@ -7,17 +7,18 @@ import { RootState } from "@/store/store";
 
 export const Header = () => {
   const lang = getLanguage();
-  const card = useSelector((state: RootState) => state)
-  
+  const favoritesCount = useSelector((state: RootState) => state.favorites.card.length);
+  const basketCount = useSelector((state: RootState) => state.basket.card.length);
+
   return (
     <HeaderWrapper>
       <Logo />
       <HeaderList>
         <HeaderItem>
-          <ButtonWithCount count={card.favorites.card.length} title={lang.favorites} icon="favorites" link="favorites" />
+          <ButtonWithCount count={favoritesCount} title={lang.favorites} icon="favorites" link="favorites" />
         </HeaderItem>
         <HeaderItem>
-          <ButtonWithCount count={card.basket.card.length} title={lang.basket} icon="basket" link="basket" />
+          <ButtonWithCount count={basketCount} title={lang.basket} icon="basket" link="basket" />
         </HeaderItem>
       </HeaderList>
     </HeaderWrapper>

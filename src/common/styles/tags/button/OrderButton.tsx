@@ -1,17 +1,16 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import {
   absBottom,
   buttonHoverActive,
   clampText,
   flexCenter,
   opacityHoverActive,
-  resetButton,
 } from "@/common/styles/mixins";
 import { getLanguage } from "@/common/helpers/getLanguage";
 import { borders, colors, fonts } from "@/common/styles/styleConstants";
 import { Link } from "react-router-dom";
 
-const styledButton = css`
+const LinkTo = styled(Link)<{ $isActive: boolean }>`
   ${flexCenter}
   ${absBottom}
   z-index: 1;
@@ -25,19 +24,7 @@ const styledButton = css`
 
   ${buttonHoverActive}
   ${opacityHoverActive}
-`;
 
-const Button = styled("button")<{ $isActive: boolean }>`
-  ${styledButton}
-  ${resetButton}
-
-  background-color: ${(props) =>
-    props.$isActive ? colors.grayText : colors.blackAccent};
-  pointer-events: ${(props) => props.$isActive && "none"};
-`;
-
-const LinkTo = styled(Link)<{ $isActive: boolean }>`
-  ${styledButton}
   background-color: ${(props) =>
     props.$isActive ? colors.grayText : colors.blackAccent};
   pointer-events: ${(props) => props.$isActive && "none"};
@@ -53,16 +40,8 @@ export const OrderButton = ({ isActive, link, click }: OrderButtonProps) => {
   const lang = getLanguage();
 
   return (
-    <>
-      {!!link ? (
-        <LinkTo to={link} $isActive={isActive}>
-          {lang.checkoutButton}
-        </LinkTo>
-      ) : (
-        <Button $isActive={isActive} onClick={click}>
-          {lang.buyButton}
-        </Button>
-      )}
-    </>
+    <LinkTo to={link || '/'} $isActive={isActive} onClick={click}>
+      {!!click ? lang.buyButton : lang.checkoutButton}
+    </LinkTo>
   );
 };

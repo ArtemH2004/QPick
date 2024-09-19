@@ -29,8 +29,9 @@ export const ModalBankCard = ({
   const { setCard, clearCard } = useActions();
 
   const handleClose = () => {
+    const isValid = !!card.number && !!card.date && !!card.cvv;
+    !isValid && clearCard();
     setOpen(false);
-    !isSaveButtonActive && clearCard();
   };
 
   const handleReset = () => {
@@ -38,13 +39,19 @@ export const ModalBankCard = ({
     setSaveButtonActive(false);
   };
 
-  const handleSave = () => {
+  const handleClickSave = () => {
     setOpen(false);
+    setSaveButtonActive(false);
+  };
+
+  const handleChangeSave = () => {
+    const isValid = !!card.number && !!card.date && !!card.cvv;
+    setSaveButtonActive(isValid ? true : false);
   };
 
   const handleChange = (key: string, value: string) => {
-    const isValid = !!card.number && !!card.date && !!card.cvv
-    setSaveButtonActive(isValid ? true : false)
+    const isValid = !!card.number && !!card.date && !!card.cvv;
+    setSaveButtonActive(isValid ? true : false);
 
     setCard({ ...card, [key]: value });
   };
@@ -91,7 +98,8 @@ export const ModalBankCard = ({
           title={lang.save}
           color="black"
           isActive={isSaveButtonActive}
-          click={handleSave}
+          click={handleClickSave}
+          change={handleChangeSave}
         />
       </ModalButtonWrapper>
     </Modal>

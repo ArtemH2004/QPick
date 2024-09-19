@@ -63,4 +63,5 @@ export const russianLanguage = {
     reset: 'Сбросить',
     save: 'Сохранить',
     edit: 'Редактировать',
+    orderPlaced: 'Заказ оформлен',
 }

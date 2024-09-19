@@ -15,7 +15,6 @@ export const Footer = () => {
     <FooterWrapper>
       <Logo />
 
-      {/* TODO add links */}
       <FooterContent>
         <FooterList>
           <FooterLink title={lang.favorites} navLink="favorites" />

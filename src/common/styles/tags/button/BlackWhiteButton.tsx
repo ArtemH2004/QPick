@@ -38,6 +38,7 @@ interface BlackWhiteButtonProps {
   title: string;
   color?: string;
   click?: () => void;
+  change?: () => void;
   isActive?: boolean;
 }
 
@@ -45,10 +46,11 @@ export const BlackWhiteButton = ({
   title,
   color,
   click,
+  change,
   isActive,
 }: BlackWhiteButtonProps) => {
   return (
-    <Button onClick={click} $color={color} $isActive={isActive}>
+    <Button onClick={click} onChange={change} $color={color} $isActive={isActive}>
       <Span>{title}</Span>
     </Button>
   );

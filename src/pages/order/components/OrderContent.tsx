@@ -14,6 +14,7 @@ import { OrderItem } from "@/pages/order/components/OrderItem";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import { useActions } from "@/store/actions";
 
 const OrderContentList = styled(BasketProductCardList)`
   flex-direction: column;
@@ -21,11 +22,25 @@ const OrderContentList = styled(BasketProductCardList)`
 
 export const OrderContent = () => {
   const lang = getLanguage();
+  const { clearBasket } = useActions();
   const order = useSelector((state: RootState) => state.order);
+  const isFilled =
+    !!order.card.number &&
+    !!order.card.date &&
+    !!order.card.cvv &&
+    !!order.recipient.name &&
+    !!order.recipient.surname &&
+    !!order.recipient.phone &&
+    !!order.address.address;
 
   useEffect(() => {
     scrollToTop();
   }, []);
+
+  const handleClick = () => {
+    alert(lang.orderPlaced)
+    clearBasket();
+  };
 
   return (
     <BasketInnerWrapper>
@@ -41,7 +56,19 @@ export const OrderContent = () => {
           </OrderContentList>
         </BasketContentSection>
 
-        <BasketTotal title={lang.total} value={totalPrice()} isActive={!!order.card && !!order.recipient && !!order.address.address ? false : true} />
+        <BasketTotal
+          title={lang.total}
+          value={totalPrice(
+            order.address.type === "selfPickup" &&
+              (order.address.address === lang.defaultAddressVoronezh ||
+                order.address.address === lang.defaultAddressMoscow)
+              ? 999
+              : 0
+          )}
+          isActive={isFilled ? false : true}
+          click={handleClick}
+          link="/home"
+        />
       </BasketContentWrapper>
     </BasketInnerWrapper>
   );

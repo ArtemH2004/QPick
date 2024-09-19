@@ -67,7 +67,7 @@ export const OrderCardItem = ({ card, click }: OrderCardItemProps) => {
 
       <ContentWrapper>
         <SpanNumber>{card.date}</SpanNumber>
-        <SpanNumber>***</SpanNumber>
+        <SpanNumber>⋅⋅⋅</SpanNumber>
       </ContentWrapper>
     </Wrapper>
   );

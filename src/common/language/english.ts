@@ -63,4 +63,5 @@ export const englishLanguage = {
   reset: "Reset",
   save: "Save",
   edit: "Edit",
+  orderPlaced: 'Order placed',
 };
