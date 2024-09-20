@@ -11,6 +11,50 @@ import { ModalButtonWrapper } from "@/common/components/modal/styles";
 import { BlackWhiteButton } from "@/common/styles/tags/button/BlackWhiteButton";
 import { useState } from "react";
 
+const formatCardNumber = (value: string) => {
+  const digits = value.replace(/\D/g, "").slice(0, 16);
+  return digits.replace(/(\d{4})(?=\d)/g, "$1 ").trim();
+};
+
+const formatDate = (value: string) => {
+  const digits = value.replace(/\D/g, "").slice(0, 4);
+  if (digits.length >= 2) {
+    return `${digits.slice(0, 2)} / ${digits.slice(2)}`;
+  }
+  return digits;
+};
+
+const formatCvv = (value: string) => {
+  const digits = value.replace(/\D/g, "").slice(0, 3);
+  return digits;
+};
+
+const validateCardNumber = (value: string) => {
+  const digits = value.replace(/\D/g, "");
+  return digits.length === 16;
+};
+
+const validateDate = (value: string) => {
+  const [month, year] = value.split("/");
+  const monthNum = parseInt(month, 10);
+  const yearNum = parseInt(year, 10);
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear() % 100;
+  const currentMonth = currentDate.getMonth() + 1;
+
+  return (
+    monthNum >= 1 &&
+    monthNum <= 12 &&
+    (yearNum > currentYear || (yearNum === currentYear && monthNum >= currentMonth))
+  );
+};
+
+const validateCvv = (value: string) => {
+  const digits = value.replace(/\D/g, "");
+  return digits.length === 2 || digits.length === 3;
+};
+
+
 interface ModalBankCardProps {
   isOpen: boolean;
   setOpen: (open: boolean) => void;
@@ -44,18 +88,38 @@ export const ModalBankCard = ({
     setSaveButtonActive(false);
   };
 
+  const validateForm = () => {
+    const isValidNumber = /^\d{4} \d{4} \d{4} \d{4}$/.test(card.number);
+    const isValidDate = /^(0[1-9]|1[0-2])\d \ \d{2}$/.test(card.date);
+    const isValidCvv = /^\d{3}$/.test(card.cvv);
+    return isValidNumber && isValidDate && isValidCvv;
+  };
+
   const handleChangeSave = () => {
-    const isValid = !!card.number && !!card.date && !!card.cvv;
-    setSaveButtonActive(isValid ? true : false);
+    const isValid = validateForm();
+    setSaveButtonActive(isValid);
   };
-
+  
   const handleChange = (key: string, value: string) => {
-    const isValid = !!card.number && !!card.date && !!card.cvv;
-    setSaveButtonActive(isValid ? true : false);
-
-    setCard({ ...card, [key]: value });
+    let formattedValue = value;
+    if (key === "number") {
+      formattedValue = formatCardNumber(value);
+    } else if (key === "date") {
+      formattedValue = formatDate(value);
+    } else if (key === "cvv") {
+      formattedValue = formatCvv(value);
+    }
+  
+    setCard({ ...card, [key]: formattedValue });
+  
+    const isValid =
+      validateCardNumber(card.number) &&
+      validateDate(card.date) &&
+      validateCvv(card.cvv);
+  
+    setSaveButtonActive(isValid);
   };
-
+  
   return (
     <Modal isOpen={isOpen} onClose={handleClose} title={lang.linkCard}>
       <OrderForm>

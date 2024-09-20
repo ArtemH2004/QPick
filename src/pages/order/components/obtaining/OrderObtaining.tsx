@@ -41,7 +41,11 @@ export const OrderObtaining = () => {
           {order.type === "selfPickup" ? lang.selfPickup : lang.delivery}
         </OrderObtainingTitle>
         <OrderObtainingText>{`${
-          order.type === "delivery" ? lang.free : "999 ₽"
+          order.type === "delivery" &&
+          order.address !== lang.defaultAddressVoronezh &&
+          order.address !== lang.defaultAddressMoscow
+            ? "999 ₽"
+            : lang.free
         }`}</OrderObtainingText>
       </OrderObnaitingDeliveryWrapper>
 

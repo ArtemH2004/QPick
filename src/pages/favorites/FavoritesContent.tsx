@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { Empty } from "@/common/components/Empty";
 import { BasketContentTitle } from "@/pages/basket/components/styles";
+import { changeTitle } from "@/common/helpers/changeTitle";
 
 export const FavoritesContent = () => {
   const lang = getLanguage();
@@ -17,6 +18,7 @@ export const FavoritesContent = () => {
 
   useEffect(() => {
     scrollToTop();
+    changeTitle('favorites');
   }, []);
 
   return (

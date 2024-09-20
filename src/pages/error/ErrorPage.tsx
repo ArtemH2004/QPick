@@ -1,7 +1,13 @@
 import { Logo } from "@/common/components/Logo";
+import { changeTitle } from "@/common/helpers/changeTitle";
 import { getLanguage } from "@/common/helpers/getLanguage";
-import { buttonHoverActive, clampText, flexCenter } from "@/common/styles/mixins";
+import {
+  buttonHoverActive,
+  clampText,
+  flexCenter,
+} from "@/common/styles/mixins";
 import { borders, colors, fonts } from "@/common/styles/styleConstants";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -41,6 +47,10 @@ const NavLink = styled(Link)`
 
 export const ErrorPage = () => {
   const lang = getLanguage();
+
+  useEffect(() => {
+    changeTitle("error");
+  }, []);
 
   return (
     <Section>

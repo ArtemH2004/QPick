@@ -1,4 +1,5 @@
 export const englishLanguage = {
+  main: "Home",
   language: "Language",
   raiting: "Raiting",
   favorites: "Favorites",
@@ -40,11 +41,11 @@ export const englishLanguage = {
   delivery: "Delivery",
   deliverTime: "Delivery time",
   shelfLife: "Shelf life",
-  everyday: 'Every day',
+  everyday: "Every day",
   days: "days",
-  free: 'Free',
-  choose: 'Choose',
-  chosen: 'Chosen',
+  free: "Free",
+  choose: "Choose",
+  chosen: "Chosen",
   defaultMallVoronezh: 'QPICK store "Voronezh"',
   defaultMallMoscow: 'QPICK store "Moscow"',
   defaultAddressVoronezh: "Voronezh, Lenina st., 104B",
@@ -63,5 +64,5 @@ export const englishLanguage = {
   reset: "Reset",
   save: "Save",
   edit: "Edit",
-  orderPlaced: 'Order placed',
+  orderPlaced: "Order placed",
 };

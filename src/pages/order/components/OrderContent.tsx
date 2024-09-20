@@ -15,6 +15,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { useActions } from "@/store/actions";
+import { changeTitle } from "@/common/helpers/changeTitle";
 
 const OrderContentList = styled(BasketProductCardList)`
   flex-direction: column;
@@ -35,10 +36,11 @@ export const OrderContent = () => {
 
   useEffect(() => {
     scrollToTop();
+    changeTitle('order');
   }, []);
 
   const handleClick = () => {
-    alert(lang.orderPlaced)
+    alert(lang.orderPlaced);
     clearBasket();
   };
 
@@ -59,9 +61,9 @@ export const OrderContent = () => {
         <BasketTotal
           title={lang.total}
           value={totalPrice(
-            order.address.type === "selfPickup" &&
-              (order.address.address === lang.defaultAddressVoronezh ||
-                order.address.address === lang.defaultAddressMoscow)
+            order.address.type === "delivery" &&
+              order.address.address !== lang.defaultAddressVoronezh &&
+              order.address.address !== lang.defaultAddressMoscow
               ? 999
               : 0
           )}
