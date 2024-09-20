@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { totalPrice } from "@/common/helpers/totalPrice";
 import { Empty } from "@/common/components/Empty";
+import { changeTitle } from "@/common/helpers/changeTitle";
 
 export const BasketContent = () => {
   const lang = getLanguage();
@@ -23,6 +24,7 @@ export const BasketContent = () => {
 
   useEffect(() => {
     scrollToTop();
+    changeTitle('basket');
   }, []);
 
   return (

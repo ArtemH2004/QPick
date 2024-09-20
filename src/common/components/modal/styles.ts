@@ -66,7 +66,7 @@ export const ModalWrapper = styled("div")`
   }
 
   @media ${device.mobile} {
-    width: 90vw;
+    min-width: 90vw;
     padding: 20px;
   }
 
@@ -75,7 +75,7 @@ export const ModalWrapper = styled("div")`
   }
 
   @media ${device.mobileM} {
-    width: 95vw;
+    min-width: 95vw;
     padding: 10px;
   }
 `;

@@ -1,4 +1,5 @@
 export const russianLanguage = {
+    main: 'Главная',
     language: 'Язык',
     raiting: 'Рейтинг',
     favorites: 'Избранное',

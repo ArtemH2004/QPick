@@ -8,12 +8,14 @@ import {
 } from "@/pages/home/components/styles";
 import { useEffect } from "react";
 import { scrollToTop } from "@/common/helpers/scrollToTop";
+import { changeTitle } from "@/common/helpers/changeTitle";
 
 export const HomeContent = () => {
   const lang = getLanguage();
 
   useEffect(() => {
     scrollToTop();
+    changeTitle('home');
   }, []);
 
   return (
