@@ -45,6 +45,10 @@ export const BasketContentWrapper = styled("div")`
 
 export const BasketContentSection = styled(HomeContentSection)`
   width: auto;
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
 `;
 
 export const BasketContentTitle = styled(HomeContentTitle)`
