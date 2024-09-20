@@ -3,7 +3,6 @@ import {
   NavigationList,
   NavOrderButton,
 } from "@/common/styles/tags/button/NavOrderButton";
-import { useState } from "react";
 import {
   OrderObnaitingDeliveryWrapper,
   OrderObtainingText,
@@ -19,10 +18,8 @@ export const OrderObtaining = () => {
   const lang = getLanguage();
   const { setAddress } = useActions();
   const order = useSelector((state: RootState) => state.order.address);
-  const [deliveryPoint, setDeliveryPoint] = useState(0);
 
   const handleDeliveryClick = (id: number) => {
-    setDeliveryPoint(id);
     setAddress({
       ...order,
       address:
@@ -66,7 +63,7 @@ export const OrderObtaining = () => {
         <OrderDelivery order={order} handleChange={handleChange} />
       ) : (
         <OrderSelfPickup
-          deliveryPoint={deliveryPoint}
+          orderAddress={order.address}
           handleDeliveryClick={handleDeliveryClick}
         />
       )}
