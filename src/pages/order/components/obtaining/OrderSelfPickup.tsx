@@ -13,11 +13,11 @@ import {
 } from "@/pages/order/components/obtaining/styles";
 
 interface OrderSelfPickupProps {
-  deliveryPoint: number;
+  orderAddress: string;
   handleDeliveryClick: (id: number) => void;
 }
 
-export const OrderSelfPickup = ({deliveryPoint, handleDeliveryClick}: OrderSelfPickupProps) => {
+export const OrderSelfPickup = ({orderAddress, handleDeliveryClick}: OrderSelfPickupProps) => {
   const lang = getLanguage();
   return (
     <OrderObnaitingList>
@@ -39,10 +39,10 @@ export const OrderSelfPickup = ({deliveryPoint, handleDeliveryClick}: OrderSelfP
           <OrderObtainingText>{`${lang.shelfLife} — 7 ${lang.days}`}</OrderObtainingText>
           <OrderObnaitingButtonWrapper>
             <BlackWhiteButton
-              title={deliveryPoint === 1 ? lang.chosen : lang.choose}
+              title={orderAddress === lang.defaultAddressVoronezh ? lang.chosen : lang.choose}
               color="black"
               click={() => handleDeliveryClick(1)}
-              isActive={deliveryPoint === 1 ? false : true}
+              isActive={orderAddress === lang.defaultAddressVoronezh ? false : true}
             />
           </OrderObnaitingButtonWrapper>
         </OrderObnaitingRowWrapper>
@@ -64,10 +64,10 @@ export const OrderSelfPickup = ({deliveryPoint, handleDeliveryClick}: OrderSelfP
           <OrderObtainingText>{`${lang.shelfLife} — 7 ${lang.days}`}</OrderObtainingText>
           <OrderObnaitingButtonWrapper>
             <BlackWhiteButton
-              title={deliveryPoint === 2 ? lang.chosen : lang.choose}
+              title={orderAddress === lang.defaultAddressMoscow ? lang.chosen : lang.choose}
               color="black"
               click={() => handleDeliveryClick(2)}
-              isActive={deliveryPoint === 2 ? false : true}
+              isActive={orderAddress === lang.defaultAddressMoscow ? false : true}
             />
           </OrderObnaitingButtonWrapper>
         </OrderObnaitingRowWrapper>
