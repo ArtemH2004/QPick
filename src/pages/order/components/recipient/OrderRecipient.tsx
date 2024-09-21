@@ -9,14 +9,19 @@ import { RootState } from "@/store/store";
 import { useActions } from "@/store/actions";
 import { BlackWhiteButton } from "@/common/styles/tags/button/BlackWhiteButton";
 
-const validateName = (name: string) => {
-  const regex = /^[a-zA-Zа-яА-ЯёЁ\s'-]+$/;
-  return regex.test(name);
+const formatPhoneNumber = (value: string) => {
+  const digits = value.replace(/\D/g, "").slice(0, 11);
+  if (digits.length === 0) return "";
+  const formattedNumber = digits.replace(
+    /(\d{1})(\d{3})(\d{3})(\d{2})(\d{2})/,
+    "$1($2)$3-$4-$5"
+  );
+  return formattedNumber;
 };
 
-const validatePhone = (value: string) => {
-  const regex = /^[0-9]+$/;
-  return regex.test(value);
+const validateName = (value: string) => {
+  const nameRegex = /^[A-Za-zА-Яа-яЁё\s-]+$/; 
+  return value.length >= 0 && nameRegex.test(value);
 };
 
 export const OrderRecipient = () => {
@@ -25,19 +30,19 @@ export const OrderRecipient = () => {
   const recipient = useSelector((state: RootState) => state.order.recipient);
 
   const handleChange = (key: string, value: string) => {
-    let isValid = true;
-
     if (key === "phone") {
-      if (!validatePhone(value)) {
-        isValid = false;
-      }
-    } else if (key === "name" || key === "surname") {
-      if (!validateName(value)) {
-        isValid = false;
-      }
-    }
+      const formattedValue = formatPhoneNumber(value);
+      setRecipient({ ...recipient, [key]: formattedValue });
+    } else {
+      let isValid = true;
 
-    if (isValid) {
+      if (key === "name" || key === "surname") {
+        isValid = validateName(value);
+        if (!isValid) {
+          value = ""; 
+        }
+      }
+  
       setRecipient({ ...recipient, [key]: value });
     }
   };

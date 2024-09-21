@@ -32,11 +32,12 @@ export const OrderContent = () => {
     !!order.recipient.name &&
     !!order.recipient.surname &&
     !!order.recipient.phone &&
-    !!order.address.address;
+    !!order.address.address &&
+    order.recipient.phone.length === 15;
 
   useEffect(() => {
     scrollToTop();
-    changeTitle('order');
+    changeTitle("order");
   }, []);
 
   const handleClick = () => {

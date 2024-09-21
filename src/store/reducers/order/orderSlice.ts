@@ -14,7 +14,7 @@ interface OrderState {
 const initialState: OrderState = {
   card: { number: "", date: "", cvv: "" },
   address: {
-    type: "selfPickup",
+    type: "delivery",
     address: "",
     apartment: "",
     entrance: "",
